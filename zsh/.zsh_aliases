@@ -1,0 +1,2 @@
+alias sirb="irb --simple-prompt"
+alias gotocode="cd ~/Documents/Code/"
