@@ -13,7 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
+Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
 
@@ -27,6 +27,13 @@ set bg=dark
 
 set re=0
 set signcolumn=yes
+
+"Ruby
+set nocompatible
+syntax on
+filetype on
+filetype indent on
+filetype plugin on
 
 "NerdTree config
 autocmd VimEnter * NERDTree
