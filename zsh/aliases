@@ -1,3 +1,9 @@
 #!/usr/bin/env zsh
 alias sirb="irb --simple-prompt"
 alias gotocode="cd ~/Documents/Code/"
+
+alias gc="git commit -m"
+alias gp="git push"
+alias gpl="git pull"
+alias gch="git checkout"
+alias ga="git add"
