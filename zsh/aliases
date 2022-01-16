@@ -14,7 +14,7 @@ alias gl="git log --stat"
 
 alias dst="docker start"
 alias dsp="docker stop"
-alias dps="docker ps"
+alias dc="docker ps"
 alias dr="docker run"
 alias dcr="docker rm"
 alias dir="docker rmi"
