@@ -15,8 +15,8 @@ alias gh="git log --graph --format=\"%C(bold blue)%h %C(white)| %s | %C(yellow)(
 alias gsp="git stash pop"
 alias gsa="git stash apply"
 alias gsl="git stash list" 
-alias gra="git reset" # as in 'git reset all'
 alias gulc="git reset HEAD~1 --soft" # as in 'git undo last commit'
+alias gr="git restore"
 
 # Docker
 alias dst="docker start"
