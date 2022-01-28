@@ -1,0 +1,6 @@
+[rerere]
+	enabled = true
+[user]
+	name = flackoon
+	email = nkatrandjiev@gmail.com
+	
