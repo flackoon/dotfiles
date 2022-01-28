@@ -2,6 +2,7 @@
 alias sirb="irb --simple-prompt"
 alias gotocode="cd ~/Documents/Code/"
 
+# Git
 alias gpl="git pull --rebase"
 alias gpp="gpl; git push" # git pull --rebase; git push
 alias gch="git checkout"
@@ -12,8 +13,11 @@ alias gds="git difftool --staged"
 alias gh="git log --graph --oneline"
 alias gsp="git stash pop"
 alias gsa="git stash apply"
-alias gsl="git stash list"
+alias gsl="git stash list" 
+alias gra="git reset" # as in 'git reset all'
+alias gulc="git reset HEAD~1 --soft" # as in 'git undo last commit'
 
+# Docker
 alias dst="docker start"
 alias dsp="docker stop"
 alias dc="docker ps"
@@ -32,3 +36,8 @@ gcm() {
 gstash() {
 	git stash save "$@"
 }
+
+gunstage() {
+	git restore --staged "$@"
+}
+
