@@ -3,4 +3,15 @@
 [user]
 	name = flackoon
 	email = nkatrandjiev@gmail.com
+[alias]
+	graph = log --graph --oneline
+	puler = pull --rebase
+	pusher = push --no-ff
+	cm = commit -m
 	
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
