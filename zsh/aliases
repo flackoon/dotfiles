@@ -3,8 +3,9 @@ alias sirb="irb --simple-prompt"
 alias gotocode="cd ~/Documents/Code/"
 
 # Git
-alias gpl="git pull --rebase"
-alias gpp="gpl; git push" # git pull --rebase; git push
+alias gpr="git pull --rebase" # as in 'git pull rebase'
+alias gfr="git fetch && git rebase" # as in 'git fetch and rebase"
+alias gpp="gpl; git push --force-with-lease" # git pull --rebase; git push
 alias gch="git checkout"
 alias ga="git add"
 alias gs="git status"
