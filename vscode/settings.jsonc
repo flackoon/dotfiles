@@ -1,0 +1,62 @@
+{
+  "cSpell.userWords": [
+    "Arrayish",
+    "backoffice",
+    "Barplot",
+    "brainer",
+    "goodbag",
+    "Keyof",
+    "Mapish",
+    "Stylelint",
+    "Timeframe",
+    "typeof"
+  ],
+  "css.validate": false,
+  "editor.tabSize": 2,
+  "editor.fontSize": 15,
+  "editor.rulers": [120],
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "alt",
+  "editor.tabCompletion": "onlySnippets",
+  "editor.snippetSuggestions": "top",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "emmet.variables": {
+    "": ""
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "explorer.autoReveal": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.insertFinalNewline": true,
+  "files.autoSave": "onFocusChange",
+  "git.openDiffOnClick": false,
+  "ruby.useBundler": true, //run non-lint commands with bundle exec
+  "ruby.useLanguageServer": true, // use the internal language server (see below),
+  "ruby.intellisense": "rubyLocate",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "stylelint.configBasedir": "node_modules/stylelint",
+  "stylelint.validate": ["css", "scss"],
+  "scss.validate": false,
+  "security.workspace.trust.untrustedFiles": "open",  
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.external.linuxExec": "iterm",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "workbench.colorTheme": "One Monokai",
+  "workbench.editor.enablePreview": false,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+}
