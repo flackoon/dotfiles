@@ -45,7 +45,7 @@
   "workbench.colorTheme": "One Monokai",
   "workbench.editor.enablePreview": false,
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"//,
     // "editor.formatOnSave": true
   },
   "[javascript]": {
@@ -58,5 +58,5 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  },
+  }
 }
