@@ -9,6 +9,7 @@ alias gpp="gpr; git push --force-with-lease" # git pull --rebase; git push
 alias gch="git checkout"
 alias ga="git add"
 alias gs="git status"
+alias gss="git status -s"
 alias gd="git difftool"
 alias gds="git difftool --staged"
 alias gh="git log --graph --format=\"%C(bold blue)%h %C(white)| %s | %C(yellow)(%aN) %C(green)%cs\""
