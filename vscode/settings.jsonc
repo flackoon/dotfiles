@@ -7,6 +7,7 @@
     "goodbag",
     "Keyof",
     "Mapish",
+    "referes",
     "Stylelint",
     "Timeframe",
     "typeof"
@@ -36,27 +37,29 @@
   "stylelint.configBasedir": "node_modules/stylelint",
   "stylelint.validate": ["css", "scss"],
   "scss.validate": false,
-  "security.workspace.trust.untrustedFiles": "open",  
+  "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.fontSize": 15,
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.external.linuxExec": "iterm",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
+  "markdown.extension.toc.updateOnSave": false,
   "workbench.colorTheme": "One Monokai",
   "workbench.editor.enablePreview": false,
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"//,
-    // "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+		 "editor.formatOnSave": true
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  }
+  },
 }
+
