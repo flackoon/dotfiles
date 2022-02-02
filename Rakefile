@@ -4,6 +4,9 @@ desc "Install brew packages"
 task :homebrew do
   formulas = %w(
     git
+    scmpuff
+    tig
+    jump
     midnight-commander
     tmux
     tree
