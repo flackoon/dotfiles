@@ -7,6 +7,7 @@ task :homebrew do
     scmpuff
     tig
     jump
+    gnupg
     midnight-commander
     tmux
     tmuxinator
