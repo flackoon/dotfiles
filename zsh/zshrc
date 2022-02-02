@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh 
 eval "$(rbenv init - zsh)"
+eval "$(jump shell)"
+eval "$(scmpuff init -s)"
 
+export EDITOR='vim'
 export ZSH="$HOME/.oh-my-zsh"
 export NVM_DIR="$HOME/.nvm"
 
