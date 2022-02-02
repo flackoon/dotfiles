@@ -1,9 +1,12 @@
 {
   "cSpell.userWords": [
+    "appendable",
     "Arrayish",
     "backoffice",
     "Barplot",
+    "Behaviour",
     "brainer",
+    "Ellipsize",
     "goodbag",
     "Keyof",
     "Mapish",
@@ -14,7 +17,7 @@
   ],
   "css.validate": false,
   "editor.tabSize": 2,
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.rulers": [120],
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "alt",
@@ -44,22 +47,22 @@
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "markdown.extension.toc.updateOnSave": false,
-  "workbench.colorTheme": "One Monokai",
   "workbench.editor.enablePreview": false,
+  "workbench.colorTheme": "Kripton-Flat",
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true
+    "editor.formatOnSave": true
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-		 "editor.formatOnSave": true
+    "editor.formatOnSave": true
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  },
+  }
 }
 
