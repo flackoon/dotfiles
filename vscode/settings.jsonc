@@ -22,11 +22,8 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "alt",
   "editor.tabCompletion": "onlySnippets",
-  "editor.snippetSuggestions": "top",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "emmet.variables": {
-    "": ""
-  },
+  "editor.suggest.snippetsPreventQuickSuggestions": true,
   "emmet.triggerExpansionOnTab": true,
   "explorer.autoReveal": false,
   "explorer.confirmDragAndDrop": false,
@@ -63,6 +60,7 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  }
+  },
+  "editor.acceptSuggestionOnCommitCharacter": false
 }
 
