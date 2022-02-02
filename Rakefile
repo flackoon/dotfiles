@@ -9,6 +9,7 @@ task :homebrew do
     jump
     midnight-commander
     tmux
+    tmuxinator
     tree
     vim
     wget
