@@ -20,5 +20,21 @@
 			"```",
 		]
 	},
+	"Make TS code block": {
+		"prefix": "```ts",
+		"body": [
+			"```typescript",
+			"$1",
+			"```",
+		]
+	},
+	"Make Ruby code block": {
+		"prefix": "```",
+		"body": [
+			"```ruby",
+			"$1",
+			"```",
+		]
+	},
 }
 
