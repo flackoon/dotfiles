@@ -13,10 +13,13 @@ task :homebrew do
     tmuxinator
     tree
     vim
+    fzf
+    ack
     wget
     zsh
     node
-    rbenv  
+    rbenv 
+    ripgrep 
   )
   exec "brew", "install", *formulas
 end
