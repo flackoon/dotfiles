@@ -18,6 +18,9 @@ alias gsl="git stash list"
 alias gulc="git reset HEAD~1 --soft" # as in 'git undo last commit'
 alias gr="git restore"
 
+# Rake/Rails
+alias rdm="bundle exec rake db:migrate db:test:prepare"
+
 # Docker
 alias dst="docker start"
 alias dsp="docker stop"
