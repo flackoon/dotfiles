@@ -9,6 +9,10 @@ export NVM_DIR="$HOME/.nvm"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+plugins=(
+  zsh-autosuggestions
+) 
+
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -21,3 +25,5 @@ source $ZSH/oh-my-zsh.sh
 forward () { 
   ssh -R 8881:localhost:$1 -N -f root@134.122.84.33
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
