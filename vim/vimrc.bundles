@@ -1,0 +1,42 @@
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'austintaylor/vim-indentobject'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'tasn/vim-tsx'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
+Plugin 'wookiehangover/jshint.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/Align'
+Plugin 'vim-scripts/greplace.vim'
+" Text search
+Plugin 'mileszs/ack.vim'
+Plugin 'dense-analysis/ale'               " lint engine
+Plugin 'danchoi/ruby_bashrockets.vim'     " toggle hash style Bashrockets Hashrockets
+" Fuzzy File Search
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() }  }
+Plugin 'junegunn/fzf.vim'
+
+"Plugin 'tpope/vim-pastie'
+"Plugin 'tpope/vim-dispatch'
+"Plugin 'tpope/vim-unimpaired'
+"Plugin 'vim-scripts/matchit.zip'
+
+Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
+Plugin 'tsiemens/vim-aftercolors'
+"Plugin 'sainnhe/sonokai'
