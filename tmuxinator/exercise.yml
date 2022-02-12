@@ -1,0 +1,12 @@
+name: exercise
+root: ~/Documents/Code/Exercism
+windows:
+  - cheatsheet:
+      layout: tiled
+      panes:
+        - vim ./gist/vim.txt ./gist/tmux.txt -O
+  - vim:
+      layout: main-horizontal
+      panes:
+        -
+        -

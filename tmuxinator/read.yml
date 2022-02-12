@@ -1,0 +1,16 @@
+name: read
+root: ~/Documents/Code/School
+windows:
+  - cheatsheet:
+      layout: tiled
+      panes:
+        - vim ./gist/vim.txt ./gist/tmux.txt -O
+  - textbook:
+      layout: tiled
+      panes:
+        - vim
+  - sandbox:
+      layout: main-horizontal
+      panes:
+        - vim
+        -
