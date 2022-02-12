@@ -114,7 +114,7 @@ noremap <Del> i<Del><Esc>^i
 map gp gT
 map gn gt
 map go :tabnew<SPACE>
-nnoremap <leader>bq :q!<CR>
+nnoremap <leader>bc :q!<CR>
 nnoremap <leader>bs :w<CR>
 nnoremap <leader>bqw :wq<CR>
 nnoremap <leader>bn :bn<CR>
