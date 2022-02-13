@@ -1,0 +1,19 @@
+let g:material_theme_style = 'darker-community'
+let g:material_terminal_italics = 1
+"let g:sonokai_current_word = 'underline'
+"let g:sonokai_diagnostic_line_highlight = 1
+"let g:sonokai_diagnostic_text_highlight = 1
+
+let g:airline_theme = 'powerlineish'
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
+let g:airline_detect_spell=0
+let g:airline_detect_spelllang=0
+let g:airline#extensions#wordcount#enabled = 0
+
+colorscheme material
+if (has('termguicolors'))
+  set termguicolors
+endif

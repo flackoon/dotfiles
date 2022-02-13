@@ -1,0 +1,56 @@
+" Use ag with Ack in Vim
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+endif
+
+" automatically rebalance windows on vim resize
+"autocmd VimResized * :wincmd =" theme setup
+
+
+let g:auto_save = 1                                         " Enable autosave on change
+let g:auto_save_silent = 1                                  " do not display the auto-save notification
+let g:auto_save_events = ["InsertLeave", "TextChanged"]     " The events on which AutoSave will perform
+let g:tmux_navigator_no_mappings = 1
+
+let g:ruby_autocomplete_solargraph = '~/.rbenv/shims/solargraph'
+
+" https://github.com/junegunn/fzf.vim
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '0%', 'up': '~100%' }
+let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+"let g:ale_linters_explicit = 1
+let g:ale_ruby_rubocop_executable = 'bundle exec rubocop'
+let g:ale_ruby_rubocop_options = '--autocorrect'
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'ruby': ['rubocop'],
+\}

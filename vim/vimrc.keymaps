@@ -1,0 +1,61 @@
+"Keybord remaps
+let mapleader = " "
+nnoremap SPACE <Nop>
+" Searching
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>s :Ack<SPACE>
+" Typing
+inoremap <C-u> <ESC>ui
+inoremap <C-r> <ESC><C-r>i
+inoremap <C-d> <ESC>Di
+inoremap <C-b> <ESC>dBi
+inoremap <C-w> <C-\><C-o>dB
+
+
+" keyboard shortcuts
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <Tab> >>
+noremap <S-Tab> <<
+noremap <C-y> <ESC>yiw
+inoremap <C-y> <ESC>yiw`^i
+nnoremap <BS> i<BS><Esc>`^
+noremap <Del> i<Del><Esc>`^
+noremap <S-k> <ESC>v<k>
+noremap <S-j> <ESC>v<j>
+noremap <S-h> <ESC>ve
+noremap <S-l> <ESC>vb
+" previous tab
+nnoremap gp gT
+nnoremap gn gt
+nnoremap go :tabnew<SPACE>
+nnoremap <leader>bo :enew<SPACE><CR>:e<SPACE>
+nnoremap <leader>bc :bw!<CR>
+nnoremap <leader>bq :q!<CR>
+nnoremap <leader>bs :w<CR>
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>be :e<SPACE>
+
+
+nnoremap <C-Down> :m .+1<CR>==
+nnoremap <C-Up> :m .-2<CR>==
+inoremap <C-Down> <Esc>:m .+1<CR>==gi
+inoremap <C-Up> <Esc>:m .-2<CR>==gi
+vnoremap <C-Down> :m '>+1<CR>gv=gv
+vnoremap <C-Up> :m '<-2<CR>gv=gv
+
+
+map <leader>e :NERDTreeToggle<CR>
+map <leader>hu :GitGutterUndoHunk<CR>
+map <leader>hs :GitGutterStageHunk<CR>
+map <leader>* :nohlsearch<CR>
+
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>

@@ -1,0 +1,69 @@
+setlocal spell spelllang=en_us                               " Enable automatically EN spellchecking
+set complete+=kspell                                         " Get word completion (for free)
+set spell
+set autoindent
+set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
+set backspace=2                                              " Fix broken backspace in some setups
+set backupcopy=yes                                           " see :help crontab
+set clipboard=unnamed
+set hidden                                                   " Don't display warnings when opening new buffers
+set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
+set expandtab                                                 " expand tabs to spaces
+set ignorecase                                                " case-insensitive search
+"set incsearch                                                 " search as you type    CHECK
+set hlsearch                                                  " highlight word under cursor
+set laststatus=2                                              " always show status line
+set list                                                      " show trailing whitespace
+set showbreak=↪\
+set listchars=tab:→\ ,eol:¬,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set number                                                    " show line numbers
+"set ruler                                                     " show where you are
+set scrolloff=0                                               " show context above/below cursorline
+set shiftwidth=2                                              " normal mode indentation commands use 2 spaces
+set showcmd
+set smartcase                                                 " case-sensitive search if any caps
+set softtabstop=2                                             " insert mode tab and backspace use 2 spaces
+set tabstop=2                                                 " width of a tab character§
+set smarttab                                                  " insert blanks in front of a line
+set smartindent                                               " smart autoindent on new line
+set shiftround                                                " round indent to multiple of shiftwidth
+
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildmenu                                                  " show a navigable menu for tab completion
+set wildmode=longest,list,full
+
+set backspace=indent,eol,start                                " liberal backspacing in insert mode
+fixdel
+
+set nowrap                                                    " break by words
+set showmatch                                                 " show matching brackets when hovering
+set viminfo='25,\"50,n~/.vim/.viminfo
+"set splitright
+set undofile                                                  " save undo's after file closes
+set undodir=$HOME/.vim/undo                                   " where to save undo histories
+set undolevels=1000                                           " how many undos
+set undoreload=10000                                          " number of lines to save for undo
+set textwidth=120
+set colorcolumn=120
+set updatetime=100
+"highlight ColorColumn ctermbg=gray "set to whatever you like
+"set cursorline                                                " highlight current line
+set showtabline=2                                             " Always show tab bar at the top
+set shell=zsh
+" Turn folding off for real, hopefully
+set foldmethod=manual
+set nofoldenable
+set complete-=t
+set matchtime=1
+set notimeout
+set timeoutlen=0
+" vim optimizations - people say this is making vim fast
+set lazyredraw
+set ttyfast
+" Enable basic mouse behavior such as resizing buffers.
+set mouse=a
+if exists('$TMUX')  " Support resizing in tmux
+  set ttymouse=xterm2
+endif
