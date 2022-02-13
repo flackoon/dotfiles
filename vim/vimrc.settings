@@ -48,8 +48,7 @@ set undoreload=10000                                          " number of lines 
 set textwidth=120
 set colorcolumn=120
 set updatetime=100
-"highlight ColorColumn ctermbg=gray "set to whatever you like
-"set cursorline                                                " highlight current line
+"set cursorline                                               " highlight current line
 set showtabline=2                                             " Always show tab bar at the top
 set shell=zsh
 " Turn folding off for real, hopefully
