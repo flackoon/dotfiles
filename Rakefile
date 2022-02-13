@@ -10,7 +10,6 @@ task :homebrew do
     gnupg
     midnight-commander
     tmux
-    tmuxinator
     tree
     vim
     fzf
@@ -19,7 +18,8 @@ task :homebrew do
     zsh
     node
     rbenv 
-    ripgrep 
+    ripgrep
+    iterm2
   )
   exec "brew", "install", *formulas
 end
