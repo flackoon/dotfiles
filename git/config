@@ -5,13 +5,14 @@
 	email = nkatrandjiev@gmail.com
 [alias]
 	graph = log --graph --oneline
-	puler = pull --rebase
-	pusher = push --no-ff
-	cm = commit -m
-	
 [diff]
 	tool = vimdiff
 [merge]
 	tool = vimdiff
+  ff = no
 [difftool]
 	prompt = false
+[pull]
+	rebase = true
+[push]
+  ff = no
