@@ -4,7 +4,7 @@ let g:material_terminal_italics = 1
 "let g:sonokai_diagnostic_line_highlight = 1
 "let g:sonokai_diagnostic_text_highlight = 1
 
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'deus'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
