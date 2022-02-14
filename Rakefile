@@ -20,6 +20,7 @@ task :homebrew do
     rbenv 
     ripgrep
     iterm2
+    ctags
   )
   exec "brew", "install", *formulas
 end
