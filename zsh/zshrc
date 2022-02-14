@@ -17,7 +17,7 @@ plugins=(
   zsh-autosuggestions
 )
 
-[[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
+[[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # Path to your oh-my-zsh installation.

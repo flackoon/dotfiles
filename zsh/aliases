@@ -1,25 +1,27 @@
 #!/usr/bin/env zsh
 alias sirb="irb --simple-prompt"
 alias gotocode="cd ~/Documents/Code/"
-
 # Git
-alias gpr="git pull --rebase" # as in 'git pull rebase'
-alias gfr="git fetch && git rebase" # as in 'git fetch and rebase"
-alias gpp="gpr; git push --force-with-lease" # git pull --rebase; git push
-alias gch="git checkout"
-alias ga="git add"
+alias gf="git fetch"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gup="git pull"
+alias gupr="git pull --rebase"
+alias gcm="git commit"
 alias gst="scmpuff_status"
-alias gd="git difftool"
-alias gds="git difftool --staged"
 alias gh="git log --graph --format=\"%C(bold blue)%h %C(white)| %s | %C(yellow)(%aN) %C(green)%cs\""
 alias gsp="git stash pop"
 alias gsa="git stash apply"
-alias gsl="git stash list" 
+alias gsl="git stash list"
 alias gulc="git reset HEAD~1 --soft" # as in 'git undo last commit'
-alias gr="git restore"
 
 # Rake/Rails
 alias rdm="bundle exec rake db:migrate db:test:prepare"
+
+# Yarn
+alias yi="yarn install"
+alias yt="yarn test"
+alias ts="ts-node"
 
 # Docker
 alias dst="docker start"
@@ -33,15 +35,34 @@ alias di="docker images"
 alias de="docker exec -t -i /bin/zsh"
 alias dl="docker logs --tail 15"
 
-gcm() {
-	git commit -m "$@"
+gbc(){
+  git checkout -b "$@"
 }
 
-gstash() {
-	git stash save "$@"
+gm(){
+  git merge "$@"
 }
 
-gunstage() {
-	git restore --staged "$@"
+gr() {
+  git reset "$@"
 }
 
+gri(){
+  git rebase -i "$@"
+}
+
+gre(){
+  git restore "$@"
+}
+
+gres(){
+  git restore --staged "$@"
+}
+
+gds() {
+  git diff --staged "$@"
+}
+
+gch() {
+  git checkout "$@"
+}
