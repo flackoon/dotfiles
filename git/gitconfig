@@ -1,0 +1,35 @@
+[rerere]
+	enabled = true
+[user]
+	name = flackoon
+	email = nkatrandjiev@gmail.com
+[alias]
+	graph = log --graph --oneline
+[diff]
+	tool = ydiff
+  algorithm = patience
+  renameLimit = 0
+  renames = true
+[merge]
+	tool = vimdiff
+  ff = no
+[difftool]
+	prompt = false
+[pull]
+	rebase = true
+[push]
+  ff = no
+[core]
+  excludesfile = ~/.gitignore
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 82
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
