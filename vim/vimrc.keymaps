@@ -2,8 +2,8 @@
 let mapleader = " "
 nnoremap SPACE <Nop>
 " Searching
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>s :Ack<SPACE>
+nnoremap <leader>f :GFiles<cr>
+nnoremap <leader>s :Ack!<SPACE>
 " Typing
 inoremap <C-u> <ESC>ui
 inoremap <C-r> <ESC><C-r>i
@@ -19,8 +19,6 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <Tab> >>
 noremap <S-Tab> <<
-noremap <C-y> <ESC>yiw
-inoremap <C-y> <ESC>yiw`^i
 nnoremap <BS> i<BS><Esc>`^
 noremap <Del> i<Del><Esc>`^
 noremap <S-k> <ESC>v<k>
@@ -32,13 +30,13 @@ nnoremap gp gT
 nnoremap gn gt
 nnoremap go :tabnew<SPACE>
 nnoremap <leader>bo :enew<SPACE><CR>:e<SPACE>
-nnoremap <leader>bc :bw!<CR>
+nnoremap <leader>bc :BD!<CR>
 nnoremap <leader>bq :q!<CR>
 nnoremap <leader>bs :w<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>be :e<SPACE>
-
+nnoremap <leader>bl <C-O>
 
 nnoremap <C-Down> :m .+1<CR>==
 nnoremap <C-Up> :m .-2<CR>==
@@ -52,10 +50,24 @@ map <leader>e :NERDTreeToggle<CR>
 map <leader>hu :GitGutterUndoHunk<CR>
 map <leader>hs :GitGutterStageHunk<CR>
 map <leader>* :nohlsearch<CR>
-
+noremap <leader>/ :Commentary<cr>
+nnoremap <leader>9 :!tig %<CR>
+vnoremap <silent><leader>8 y:exec 'Ack! "'.escape(@*, '\\/.*$^~[]').'"'<CR>
+nnoremap <silent><leader>7 :Ack! <C-R>=expand("<cword>")<CR><CR>
+map <Leader>cfp :let @+ = expand("%:p") \| echo 'cb> ' . @+<CR>
 
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+
+function! SearchForSelection() range
+  let l:saved_a = @a
+  silent! normal! gb"ay
+  let l:text: @a
+  let @a = l:saved_a
+  let l:text = substitute(l:text, '\n\s*\\\\', ' ', 'g')
+  
+  exec 'Ack! "' + l:text '"'
+endfunction

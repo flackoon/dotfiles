@@ -2,7 +2,6 @@ setlocal spell spelllang=en_us                               " Enable automatica
 set complete+=kspell                                         " Get word completion (for free)
 set spell
 set autoindent
-set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=yes                                           " see :help crontab
 set clipboard=unnamed
@@ -18,6 +17,7 @@ set laststatus=2                                              " always show stat
 set list                                                      " show trailing whitespace
 set showbreak=↪\
 set listchars=tab:→\ ,eol:¬,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set signcolumn=number
 set number                                                    " show line numbers
 "set ruler                                                     " show where you are
 set scrolloff=0                                               " show context above/below cursorline
@@ -41,17 +41,28 @@ set nowrap                                                    " break by words
 set showmatch                                                 " show matching brackets when hovering
 set viminfo='25,\"50,n~/.vim/.viminfo
 "set splitright
+
 set undofile                                                  " save undo's after file closes
 set undodir=$HOME/.vim/undo                                   " where to save undo histories
 set undolevels=1000                                           " how many undos
 set undoreload=10000                                          " number of lines to save for undo
+set nobackup                                                  " no backup files
+set nowritebackup                                             " no backup file while editing
+set noswapfile                                                " no swap files
+set autowrite                                                 " write buffers
+set autoread                                                  " read file if changed outside vim
+set autowriteall                                              " write buffers
+:au FocusLost * :wa                                           " Save all on focus lost
+
 set textwidth=120
 set colorcolumn=120
 set updatetime=100
-"set cursorline                                               " highlight current line
+set cursorline                                               " highlight current line
 set showtabline=2                                             " Always show tab bar at the top
 set shell=zsh
 " Turn folding off for real, hopefully
+" set foldnestmax=10
+" set foldlevel=2
 set foldmethod=manual
 set nofoldenable
 set complete-=t
@@ -61,8 +72,11 @@ set timeoutlen=0
 " vim optimizations - people say this is making vim fast
 set lazyredraw
 set ttyfast
+
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[5 q"
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
 endif

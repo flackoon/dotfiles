@@ -23,7 +23,7 @@ set signcolumn=number
 "inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 "                             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-
+let g:coc_disable_transparent_cursor = 1
 let g:coc_global_extensions = [
   \ 'coc-solargraph',
   \ 'coc-css',
@@ -31,17 +31,10 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-json',
   \ 'coc-markdownlint',
-  \ 'coc-eslint',
   \ 'coc-prettier',
+  \ 'coc-eslint',
+  \ 'coc-stylelint',
   \ ]
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
-endif
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
 
 function! s:check_back_space() abort
   let col = col('.') - 1

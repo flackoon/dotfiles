@@ -1,9 +1,8 @@
 Plugin 'VundleVim/Vundle.vim'
+"Plugin 'craigemery/vim-autotag'
 Plugin '907th/vim-auto-save'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'austintaylor/vim-indentobject'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'slim-template/vim-slim'
@@ -14,11 +13,16 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/Align'
+Plugin 'qpkorr/vim-bufkill'
 
 " JS, TS stuff
 Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'pangloss/vim-javascript'
+Plugin 'chemzqm/vim-jsx-improve' 
 Plugin 'leafgarland/typescript-vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script' 
+Plugin 'cakebaker/scss-syntax.vim' 
+Plugin 'gcorne/vim-sass-lint'
 
 " Ruby stuff
 Plugin 'danchoi/ruby_bashrockets.vim'     " toggle hash style Bashrockets Hashrockets
@@ -31,7 +35,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/greplace.vim'
 
 " Linters and Language Servers
-Plugin 'dense-analysis/ale'               " lint engine
+"Plugin 'dense-analysis/ale'               " lint engine
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Fuzzy File Search
