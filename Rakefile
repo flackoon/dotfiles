@@ -6,6 +6,7 @@ task :homebrew do
     git
     scmpuff
     tig
+    ydiff
     jump
     gnupg
     midnight-commander

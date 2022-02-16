@@ -1,6 +1,4 @@
 #!/usr/bin/env zsh
-alias sirb="irb --simple-prompt"
-alias gotocode="cd ~/Documents/Code/"
 # Git
 alias gf="git fetch"
 alias gp="git push"
@@ -9,14 +7,17 @@ alias gup="git pull"
 alias gupr="git pull --rebase"
 alias gcm="git commit"
 alias gst="scmpuff_status"
+alias cgst="clear && gst"
 alias gh="git log --graph --format=\"%C(bold blue)%h %C(white)| %s | %C(yellow)(%aN) %C(green)%cs\""
+alias gs="git stash"
 alias gsp="git stash pop"
 alias gsa="git stash apply"
 alias gsl="git stash list"
-alias gulc="git reset HEAD~1 --soft" # as in 'git undo last commit'
 
 # Rake/Rails
 alias rdm="bundle exec rake db:migrate db:test:prepare"
+alias rdr="bundle exec rake db:rollback"
+alias sirb="irb --simple-prompt"
 
 # Yarn
 alias yi="yarn install"
@@ -35,34 +36,4 @@ alias di="docker images"
 alias de="docker exec -t -i /bin/zsh"
 alias dl="docker logs --tail 15"
 
-gbc(){
-  git checkout -b "$@"
-}
 
-gm(){
-  git merge "$@"
-}
-
-gr() {
-  git reset "$@"
-}
-
-gri(){
-  git rebase -i "$@"
-}
-
-gre(){
-  git restore "$@"
-}
-
-gres(){
-  git restore --staged "$@"
-}
-
-gds() {
-  git diff --staged "$@"
-}
-
-gch() {
-  git checkout "$@"
-}

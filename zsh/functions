@@ -1,0 +1,58 @@
+#!/usr/bin/env zsh
+
+# Opens changed files in the last $1 commits
+# Exmaple: vl 2
+vl() {
+  vim `git diff HEAD~$1 --name-only`
+}
+
+# Opens a file in editor
+# The number alias comes from scmpuff
+# Example: vo 1
+vo() {
+  eval "$(scmpuff expand -- "$EDITOR" "$@")"
+}
+
+unalias gd
+gd() {
+  eval "ydiff -s $(scmpuff expand -- "$@")"
+}
+
+gds() {
+  eval "ydiff -s --staged $(scmpuff expand -- "$@")"
+}
+
+gbc(){
+  git checkout -b "$@"
+}
+
+gm(){
+  git merge "$@"
+}
+
+gr() {
+  git reset "$@"
+}
+
+gri(){
+  git rebase -i "$@"
+}
+
+unalias grs
+grs(){
+  git reset --soft "$@"
+}
+
+gch() {
+  git checkout "$@"
+}
+
+unstage() {
+  git reset HEAD "$@"
+}
+
+fixup(){
+  git commit --fixup "$@"
+}
+
+
