@@ -49,6 +49,7 @@ vnoremap <C-Up> :m '<-2<CR>gv=gv
 map <leader>e :NERDTreeToggle<CR>
 map <leader>hu :GitGutterUndoHunk<CR>
 map <leader>hs :GitGutterStageHunk<CR>
+map <leader>sd :vertical Gdiffsplit<CR>
 map <leader>* :nohlsearch<CR>
 noremap <leader>/ :Commentary<cr>
 nnoremap <leader>9 :!tig %<CR>
@@ -61,13 +62,3 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
-
-function! SearchForSelection() range
-  let l:saved_a = @a
-  silent! normal! gb"ay
-  let l:text: @a
-  let @a = l:saved_a
-  let l:text = substitute(l:text, '\n\s*\\\\', ' ', 'g')
-  
-  exec 'Ack! "' + l:text '"'
-endfunction
