@@ -9,9 +9,9 @@ windows:
         - vim ~/Documents/Code/School/gist/vim.txt ~/Documents/Code/School/gist/tmux.txt ~/Documents/Code/School/gist/tig.txt -O
   - vim:
   - git:
-      layout: tiled
+      layout: main-vertical
       panes:
-        #-
+        -
         - tig
   - console:
       layout: tiled
