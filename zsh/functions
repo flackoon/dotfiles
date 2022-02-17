@@ -15,11 +15,11 @@ vo() {
 
 unalias gd
 gd() {
-  eval "ydiff -s $(scmpuff expand -- "$@")"
+  git difftool $(scmpuff expand -- "$@")
 }
 
 gds() {
-  eval "ydiff -s --staged $(scmpuff expand -- "$@")"
+  git difftool --staged $(scmpuff expand -- 1)
 }
 
 gbc(){
@@ -48,11 +48,22 @@ gch() {
 }
 
 unstage() {
-  git reset HEAD "$@"
+  git reset -- "$@"
+}
+
+revert() {
+  git checkout -- "$@"
+}
+
+revertall() {
+  git clean -f -d
 }
 
 fixup(){
   git commit --fixup "$@"
 }
 
+rtr() {
+  bundle exec rspec "$@"
+}
 

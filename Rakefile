@@ -5,8 +5,7 @@ task :homebrew do
   formulas = %w(
     git
     scmpuff
-    tig
-    ydiff
+    tig 
     jump
     gnupg
     midnight-commander

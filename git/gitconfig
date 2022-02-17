@@ -6,7 +6,7 @@
 [alias]
 	graph = log --graph --oneline
 [diff]
-	tool = ydiff
+	tool = vimdiff
   algorithm = patience
   renameLimit = 0
   renames = true
