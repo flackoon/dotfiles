@@ -67,3 +67,6 @@ rtr() {
   bundle exec rspec "$@"
 }
 
+rmg() {
+  bundle exec rails generate migration "$@"
+}
