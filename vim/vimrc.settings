@@ -1,4 +1,8 @@
-autocmd BufRead,BufNewFile * setlocal signcolumn=yes
+augroup SaveManualFolds
+    autocmd!
+    au BufWinLeave, BufLeave ?* silent! mkview
+    au BufWinEnter           ?* silent! loadview
+augroup END
 
 set nocompatible
 setlocal spell spelllang=en_us                               " Enable automatically EN spellchecking
@@ -67,7 +71,7 @@ set shell=zsh
 " set foldnestmax=10
 " set foldlevel=2
 set foldmethod=manual
-set nofoldenable
+" set nofoldenable
 set complete-=t
 set matchtime=1
 set notimeout

@@ -25,6 +25,12 @@ noremap <S-k> <ESC>v<k>
 noremap <S-j> <ESC>v<j>
 noremap <S-h> <ESC>ve
 noremap <S-l> <ESC>vb
+
+" Folding
+noremap <leader>. za
+noremap <leader>, zf
+noremap <leader>- zd
+
 " previous tab
 nnoremap gp gT
 nnoremap gn gt
@@ -37,6 +43,9 @@ nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>be :e<SPACE>
 nnoremap <leader>bl <C-O>
+nnoremap <leader>qa :%bd\|e#<CR>
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <F7> :qa<CR>
 
 nnoremap <C-Down> :m .+1<CR>==
 nnoremap <C-Up> :m .-2<CR>==
@@ -49,7 +58,7 @@ vnoremap <C-Up> :m '<-2<CR>gv=gv
 map <leader>e :NERDTreeToggle<CR>
 map <leader>hu :GitGutterUndoHunk<CR>
 map <leader>hs :GitGutterStageHunk<CR>
-map <leader>sd :vertical Gdiffsplit<CR>
+map <leader>gd :vertical Gdiffsplit<CR>
 map <leader>* :nohlsearch<CR>
 noremap <leader>/ :Commentary<cr>
 nnoremap <leader>9 :!tig %<CR>
