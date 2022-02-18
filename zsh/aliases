@@ -16,9 +16,11 @@ alias gsl="git stash list"
 
 # Rake/Rails
 alias rdm="bundle exec rake db:migrate db:test:prepare"
-alias rdr="bundle exec rake db:rollback"
+alias rdrb="bundle exec rake db:rollback"
+alias rdrs="bundle exec rake db:reset db:migrate"
+alias rta="bundle exec rake"
 alias sirb="irb --simple-prompt"
-
+alias rcgen="bundle exec rake codegen:translations codegen:graphql"
 # Yarn
 alias yi="yarn install"
 alias yt="yarn test"
@@ -35,5 +37,4 @@ alias db="docker build"
 alias di="docker images"
 alias de="docker exec -t -i /bin/zsh"
 alias dl="docker logs --tail 15"
-
 

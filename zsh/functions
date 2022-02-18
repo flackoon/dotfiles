@@ -19,7 +19,7 @@ gd() {
 }
 
 gds() {
-  git difftool --staged $(scmpuff expand -- 1)
+  git difftool --staged $(scmpuff expand -- "$@")
 }
 
 gbc(){
@@ -67,6 +67,6 @@ rtr() {
   bundle exec rspec "$@"
 }
 
-rmg() {
+rmg() { 
   bundle exec rails generate migration "$@"
 }
