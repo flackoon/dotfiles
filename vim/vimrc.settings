@@ -1,3 +1,6 @@
+autocmd BufRead,BufNewFile * setlocal signcolumn=yes
+
+set nocompatible
 setlocal spell spelllang=en_us                               " Enable automatically EN spellchecking
 set complete+=kspell                                         " Get word completion (for free)
 set spell
@@ -17,7 +20,7 @@ set laststatus=2                                              " always show stat
 set list                                                      " show trailing whitespace
 set showbreak=↪\
 set listchars=tab:→\ ,eol:¬,nbsp:␣,trail:•,extends:⟩,precedes:⟨
-set signcolumn=number
+set signcolumn=yes
 set number                                                    " show line numbers
 "set ruler                                                     " show where you are
 set scrolloff=0                                               " show context above/below cursorline
@@ -44,8 +47,8 @@ set viminfo='25,\"50,n~/.vim/.viminfo
 
 set undofile                                                  " save undo's after file closes
 set undodir=$HOME/.vim/undo                                   " where to save undo histories
-set undolevels=1000                                           " how many undos
 set undoreload=10000                                          " number of lines to save for undo
+set undolevels=1000                                           " how many undos
 set nobackup                                                  " no backup files
 set nowritebackup                                             " no backup file while editing
 set noswapfile                                                " no swap files
