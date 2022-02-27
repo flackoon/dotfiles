@@ -4,6 +4,7 @@ Plugin '907th/vim-auto-save'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/syntastic'
 Plugin 'slim-template/vim-slim'
 Plugin 'tpope/vim-endwise'
@@ -14,7 +15,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/Align'
 Plugin 'qpkorr/vim-bufkill'
-
+Plugin 'mg979/vim-visual-multi', {'branch': 'master'}
 " JS, TS stuff
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'chemzqm/vim-jsx-improve' 
@@ -23,6 +24,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script' 
 Plugin 'cakebaker/scss-syntax.vim' 
 Plugin 'gcorne/vim-sass-lint'
+Plugin 'jparise/vim-graphql'
 
 " Ruby stuff
 Plugin 'danchoi/ruby_bashrockets.vim'     " toggle hash style Bashrockets Hashrockets
@@ -31,7 +33,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
 
 " Text search
-Plugin 'mileszs/ack.vim'
+Plugin 'dyng/ctrlsf.vim'
 Plugin 'vim-scripts/greplace.vim'
 
 " Linters and Language Servers

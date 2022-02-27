@@ -1,10 +1,5 @@
-augroup SaveManualFolds
-    autocmd!
-    au BufWinLeave, BufLeave ?* silent! mkview
-    au BufWinEnter           ?* silent! loadview
-augroup END
-
 set nocompatible
+syntax on
 setlocal spell spelllang=en_us                               " Enable automatically EN spellchecking
 set complete+=kspell                                         " Get word completion (for free)
 set spell
@@ -68,10 +63,10 @@ set cursorline                                               " highlight current
 set showtabline=2                                             " Always show tab bar at the top
 set shell=zsh
 " Turn folding off for real, hopefully
-" set foldnestmax=10
-" set foldlevel=2
+set foldnestmax=10
+set foldlevel=2
+set nofoldenable
 set foldmethod=manual
-" set nofoldenable
 set complete-=t
 set matchtime=1
 set notimeout
@@ -83,7 +78,13 @@ set ttyfast
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
 let &t_SI = "\e[5 q"
-let &t_EI = "\e[5 q"
+let &t_EI = "\e[1 q"
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
 endif
+
+augroup SaveManualFolds
+    autocmd!
+    au BufWinLeave, BufLeave ?* silent! mkview
+    au BufWinEnter           ?* silent! loadview
+augroup END

@@ -1,11 +1,12 @@
 " Use ag with Ack in Vim
-if executable('rg')
-  let g:ackprg = 'rg --vimgrep'
-endif
-
-" automatically rebalance windows on vim resize
-"autocmd VimResized * :wincmd =" theme setup
-
+let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_auto_preview = 1
+let g:ctrlsf_preview_position = 'inside'
+let g:ctrlsf_compact_position = 'bottom_inside'
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+let g:ctrlsf_winsize = '100%'
 
 let g:auto_save = 1                                         " Enable autosave on change
 let g:auto_save_silent = 1                                  " do not display the auto-save notification
@@ -18,14 +19,13 @@ let g:rubycomplete_rails = 1
 let g:ruby_operators = 1
 let g:ruby_pseudo_operators = 1
 let g:ruby_space_errors = 1
-let g:ruby_fold = 1
 let g:ruby_no_expensive = 1
 let g:ruby_spellcheck_strings = 1
 
-
-" https://github.com/junegunn/fzf.vim
-" Default fzf layout
-" - down / up / left / right
+let g:gitgutter_sign_column_always = 1
+let g:NERDTreeShowHidden = 1
+let g:fzf_prefer_tmux = 1
+let $FZF_DEFAULT_OPTIONS="--preview 'bat --color=always'"
 let g:fzf_layout = { 'down': '0%', 'up': '~100%' }
 let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 " [Buffers] Jump to the existing window if possible
@@ -49,17 +49,3 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-"let g:ale_linters_explicit = 1
-let g:ale_ruby_rubocop_executable = 'bundle exec rubocop'
-let g:ale_ruby_rubocop_options = '--autocorrect'
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'ruby': ['rubocop'],
-\}
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'ruby': ['rubocop'],
-\}

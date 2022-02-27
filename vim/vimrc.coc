@@ -3,6 +3,8 @@ setlocal nowritebackup
 set shortmess+=c                                             " Don't pass messages to |ins-completion-menu|.
 set signcolumn=number
 
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
 "set cmdheight=2                                             " Give more space for displaying messages
 
 
@@ -35,42 +37,28 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-stylelint',
   \ ]
+" \ 'coc-graphql',
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+nmap      <silent> gd        <Plug>(coc-definition)
+nmap      <silent> gy        <Plug>(coc-type-definition)
+nmap      <silent> gi        <Plug>(coc-implementation)
+nmap      <silent> gr        <Plug>(coc-references)
+nmap      <leader>do         <Plug>(coc-codeaction)
+" Symbol renaming.
+nmap      <leader>rn         <Plug>(coc-rename)
 
-function! ShowDocIfNoDiagnostic(timer_id)
-  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
-    silent call CocActionAsync('doHover')
+nnoremap   <leader>?          <Plug>(coc-codeacton-cursor)
+" Formatting selected code.
+noremap   <leader>L          <Plug>(coc-format)
+noremap   <leader>l          <Plug>(coc-format-selected)
+" Use K to show documentation in preview window.
+nnoremap  <silent> K         :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
-function! s:show_hover_doc()
-  call timer_start(500, 'ShowDocIfNoDiagnostic')
-endfunction
-
-"function! s:show_documentation()
-"  if (index(['vim','help'], &filetype) >= 0)
-"    execute 'h '.expand('<cword>')
-"  elseif (coc#rpc#ready())
-"    call CocActionAsync('doHover')
-"  else
-"    execute '!' . &keywordprg . " " . expand('<cword>')
-"  endif
-"endfunction
-"
-"" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>do <Plug>(coc-codeaction)
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call CocAction('doHover')<CR>
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-" Formatting selected code.
-xmap <leader>l  <Plug>(coc-format-selected)
-nmap <leader>l  <Plug>(coc-format-selected)nnoremap <silent> K :call <SID>show_documentation()<CR>
