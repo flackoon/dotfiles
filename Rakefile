@@ -1,11 +1,12 @@
 require 'rake'
 
-desc "Install brew packages"
+desc 'Install brew packages'
 task :homebrew do
-  formulas = %w(
+  formulas = %w[
     git
     scmpuff
-    tig 
+    git-delta
+    tig
     jump
     gnupg
     midnight-commander
@@ -16,11 +17,14 @@ task :homebrew do
     ack
     wget
     zsh
+    go
+    cmake
+    python
     node
-    rbenv 
+    rbenv
     ripgrep
     iterm2
     ctags
-  )
-  exec "brew", "install", *formulas
+  ]
+  exec 'brew', 'install', *formulas
 end
