@@ -1,6 +1,4 @@
 let g:material_theme_style = 'darker-community'
-let g:material_terminal_italics = 1
-"let g:sonokai_current_word = 'underline'
 "let g:sonokai_diagnostic_line_highlight = 1
 "let g:sonokai_diagnostic_text_highlight = 1
 
@@ -17,3 +15,4 @@ colorscheme material
 if (has('termguicolors'))
   set termguicolors
 endif
+

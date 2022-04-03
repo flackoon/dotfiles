@@ -1,11 +1,6 @@
 {
-  "languageserver": {
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
-    }
-  },
+  "suggest.enablePreselect": true,
+  "solargraph.diagnostics": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "sass",
@@ -14,9 +9,12 @@
     "typescript",
     "typescriptreact"
   ],
-  "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
-  "eslint.autoFixOnSave": true,
+  "tsserver.formatOnType": true,
+  "eslint.autoFixOnSave": false, 
+  "eslint.options": {
+    "configFile": "~/.eslintrc"
+  }, 
   "eslint.filetypes": [
     "javascript",
     "javascriptreact",

@@ -37,7 +37,7 @@ nnoremap <leader>bs :w<CR>
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>bl <C-O>
-nnoremap <leader>qa :%bd\|e#<CR>
+nnoremap <leader>qa :%bd\|e#\|bn\|BD!<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <F7> :qa<CR>
 
@@ -46,7 +46,13 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-  
+
+nmap    <silent>  <leader>gm  :Gvdiffsplit!<CR>
+nmap    <silent>  <leader>dg2 :diffget //2<CR>
+nmap    <silent>  <leader>dg3 :diffget //3<CR>
+nmap    <silent>  <leader>dp1 :diffput //1<CR>
+
+
 map      <silent> <leader>e :NERDTreeToggle<CR>
 map      <silent> <F1> :NERDTreeRefreshRoot<CR>
 map      <silent> <leader>hu :GitGutterUndoHunk<CR>
