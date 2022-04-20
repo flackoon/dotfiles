@@ -6,6 +6,7 @@ task :homebrew do
     git
     scmpuff
     git-delta
+    less
     tig
     jump
     gnupg

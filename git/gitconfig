@@ -5,22 +5,30 @@
 	email = nkatrandjiev@gmail.com
 [alias]
 	graph = log --graph --oneline
-[diff]
-	tool = vimdiff
-  algorithm = patience
-  renameLimit = 0
-  renames = true
+[core]
+	excludesfile = ~/.gitignore
+  pager   = less
+[pager]
+  diff    = LESS=c delta
+  show    = LESS=c delta
+  log     = LESS=c delta
+  reflog  = LESS=c delta
+  status  = LESS=c delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+[difftool]
+	prompt = false
 [merge]
 	tool = vimdiff
   ff = no
-[difftool]
-	prompt = false
 [pull]
 	rebase = true
 [push]
   ff = no
-[core]
-  excludesfile = ~/.gitignore
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52

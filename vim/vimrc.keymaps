@@ -1,4 +1,6 @@
 "Keybord remaps
+nnoremap <down> <Nop>
+nnoremap <up> <Nop>
 
 " Searching
 nnoremap <leader>f :GFiles --exclude-standard<cr>
@@ -12,19 +14,19 @@ inoremap <C-w> <C-\><C-o>dB
 
 
 " keyboard shortcuts
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <Tab> >>
-noremap <S-Tab> <<
+noremap  <C-h> <C-w>h
+noremap  <C-j> <C-w>j
+noremap  <C-k> <C-w>k
+noremap  <C-l> <C-w>l
+noremap  <Tab> >>
+noremap  <S-Tab> <<
 nnoremap <BS> i<BS><Esc>`^
-noremap <Del> i<Del><Esc>`^
+noremap  <Del> i<Del><Esc>`^
 
 " Folding
-noremap <leader>. za
-noremap <leader>, zf
-noremap <leader>- zd
+noremap  <leader>. za
+noremap  <leader>, zf
+noremap  <leader>- zd
 
 " previous tab
 nnoremap gp gT
@@ -47,26 +49,59 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 
-nmap    <silent>  <leader>gm  :Gvdiffsplit!<CR>
-nmap    <silent>  <leader>dg2 :diffget //2<CR>
-nmap    <silent>  <leader>dg3 :diffget //3<CR>
-nmap    <silent>  <leader>dp1 :diffput //1<CR>
+nmap     <silent>  <leader>gm  :Gvdiffsplit!<CR>
+nmap     <silent>  <leader>dg2 :diffget //2<CR>
+nmap     <silent>  <leader>dg3 :diffget //3<CR>
+nmap     <silent>  <leader>dp1 :diffput //1<CR>
 
 
-map      <silent> <leader>e :NERDTreeToggle<CR>
-map      <silent> <F1> :NERDTreeRefreshRoot<CR>
-map      <silent> <leader>hu :GitGutterUndoHunk<CR>
-map      <silent> <leader>hs :GitGutterStageHunk<CR>
-map      <silent> <leader>gd :vertical Gdiffsplit<CR>
-map      <silent> <leader>* :nohlsearch<CR>
+map      <silent>  <leader>e :NERDTreeToggle<CR>
+map      <silent>  <F1> :NERDTreeRefreshRoot<CR>
+map      <silent>  <leader>hu :GitGutterUndoHunk<CR>
+map      <silent>  <leader>hs :GitGutterStageHunk<CR>
+map      <silent>  <leader>gd :vertical Gdiffsplit<CR>
+map      <silent>  <leader>* :nohlsearch<CR>
 noremap  <silent>  <leader>/ :Commentary<cr>
-nnoremap <silent> <leader>9 :!tig %<CR>
-vnoremap <Silent> <leader>8 y:exec 'CtrlSF "'.escape(@*, '\\/.*$^~[]').'"'<CR>
-nnoremap <silent> <leader>7 :CtrlSF <C-R>=expand("<cword>")<CR><CR>
-map <silent> <Leader>cfp :let @+ = expand("%:p") \| echo 'cb> ' . @+<CR>
+nnoremap <silent>  <leader>9 :!tig %<CR>
+vnoremap <silent>  <leader>8 y:exec 'CtrlSF "'.escape(@*, '\\/.*$^~[]').'"'<CR>
+nnoremap <silent>  <leader>7 :CtrlSF <C-R>=expand("<cword>")<CR><CR>
+noremap  <silent>  <Leader>cfp :let @+ = expand("%:p") \| echo 'cb> ' . @+<CR>
 
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+nnoremap <silent>  <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent>  <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent>  <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent>  <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent>  <C-\> :TmuxNavigatePrevious<cr>
+
+nnoremap <expr> <down> ScrollPopUp(1) ? '<esc>' : '<c-d>'
+nnoremap <expr> <up> ScrollPopUp(0) ? '<esc>' : '<c-u>'
+
+function FindCursorPopUp()
+  let radius = get(a:000, 0, 2)
+  let srow = screenrow()
+  let scol = screencol()
+  " it's necessary to test entire rect, as some popup might be quite small
+  for r in range(srow - radius, srow + radius)
+    for c in range(scol - radius, scol + radius)
+      let winid = popup_locate(r, c)
+      if winid != 0
+        return winid
+      endif
+    endfor
+  endfor
+
+  return 0
+endfunction
+
+function ScrollPopUp(down)
+  let winid = FindCursorPopUp()
+  if winid == 0
+    return 0
+  endif
+
+  let pp = popup_getpos(winid)
+  call popup_setoptions( winid,
+        \ {'firstline' : pp.firstline + ( a:down ? 1 : -1 ) } )
+
+  return 1
+endfunction
