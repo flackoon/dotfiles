@@ -1,6 +1,20 @@
+trim() {
+    local var="$*"
+    # remove leading whitespace characters
+    var="${var#"${var%%[![:space:]]*}"}"
+    # remove trailing whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"
+    printf '%s' "$var"
+}
+
 git_commits_info() {
   local branch=$(git branch --show-current)
-  if [[ -z "$branch" ]]; then
+  local remote_branch=$(git branch --all | grep "origin/$branch")
+  local unstaged_changes=$(git diff --numstat | wc -l | tr -d -c 0-9)
+  local staged_changes=$(git diff --cached --numstat | wc -l | tr -d -c 0-9)
+  local stashed_commits=$(git stash list | wc -l | tr -d -c 0-9)
+
+  if [[ -z "$branch" || -z "$remote_branch" ]]; then
     echo ""
   else
     local numbers=$(git rev-list --left-right --count origin/$branch...HEAD | tr -d -c 0-9)
@@ -11,18 +25,27 @@ git_commits_info() {
 
   output=""
   if [[ commits_behind_count -gt 0 ]]; then
-    output="$commits_behind_count↓"
-
-    if [[ commits_ahead_count -gt 0 ]]; then
-      output="${output} "
-    fi
+    output="%{$fg[red]%}$commits_behind_count↓ %{$reset_color%}"
   fi
 
   if [[ commits_ahead_count -gt 0 ]]; then
-    output="${output?" $output":" "}$commits_ahead_count↑"
+    output="$output%{$fg_bold[green]%}$commits_ahead_count↑ "
   fi
 
-  if [ -z "$output" ]; then
+  if [[ stashed_commits -gt 0 ]]; then
+    output="$output%{$fg_bold[yellow]%}$stashed_commits* "
+  fi
+
+  if [[ unstaged_changes -gt 0 ]]; then
+    output="$output%{$fg_bold[cyan]%}~$unstaged_changes%{$reset_color%} "
+  fi
+
+  if [[ staged_changes -gt 0 ]]; then
+    output="$output%{$fg_bold[blue]%}+$staged_changes%{$reset_color%} "
+  fi
+
+  output=$(trim $output)
+  if [ -z $output ]; then
     echo ""
   else
     echo " %{$reset_color%}| %{$fg_bold[yellow]%}$output"
@@ -51,5 +74,4 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%})%{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
-
 
