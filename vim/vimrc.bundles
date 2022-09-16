@@ -34,6 +34,8 @@ Plugin 'danchoi/ruby_bashrockets.vim'     " toggle hash style Bashrockets Hashro
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'jgdavey/tslime.vim'
 
 " Text search
 Plugin 'dyng/ctrlsf.vim'
@@ -53,6 +55,7 @@ Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
 Plugin 'tsiemens/vim-aftercolors'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'sainnhe/everforest'
 "Plugin 'sainnhe/sonokai'
 
 " Plugins that I might use at some point in time

@@ -7,6 +7,7 @@ code --install-extension Demenskiy.mokka
 code --install-extension donjayamanne.githistory
 code --install-extension DotJoshJohnson.xml
 code --install-extension dustinsanders.an-old-hope-theme-vscode
+code --install-extension eamodio.gitlens
 code --install-extension eddyvinck.Internetstorm
 code --install-extension emmanuelbeziat.vscode-great-icons
 code --install-extension Equinusocio.vsc-community-material-theme
@@ -20,6 +21,7 @@ code --install-extension jabacchetta.material-pro
 code --install-extension marcoms.oceanic-plus
 code --install-extension mdickin.markdown-shortcuts
 code --install-extension mechatroner.rainbow-csv
+code --install-extension medo64.render-crlf
 code --install-extension miguelsolorio.fluent-icons
 code --install-extension misogi.ruby-rubocop
 code --install-extension ms-azuretools.vscode-docker
@@ -28,14 +30,15 @@ code --install-extension origamid.origamid-theme
 code --install-extension primalmotion.primal
 code --install-extension rebornix.ruby
 code --install-extension rexebin.dracula
+code --install-extension sainnhe.everforest
 code --install-extension sainnhe.gruvbox-material
 code --install-extension sainnhe.sonokai
 code --install-extension sianglim.slim
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension stylelint.vscode-stylelint
 code --install-extension undefined_publisher.intellij-green-lite
+code --install-extension unifiedjs.vscode-mdx
 code --install-extension vscodevim.vim
 code --install-extension wayou.file-icons-mac
 code --install-extension wingrunr21.vscode-ruby
 code --install-extension yzhang.markdown-all-in-one
-

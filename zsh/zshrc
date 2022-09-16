@@ -2,26 +2,40 @@
 
 stty erase '^?'
 
-eval "$(rbenv init - zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init -)"
 eval "$(jump shell)"
 eval "$(scmpuff init -s)"
+eval "$(thefuck --alias)"
 
 export EDITOR='vim'
-export ZSH="$HOME/.oh-my-zsh"
 export NVM_DIR="$HOME/.nvm"
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
+export BAT_THEME="TwoDark"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH
+ZSH_THEME="flacko"
+plugins=(zsh-autosuggestions)
+export ZSH="$HOME/.oh-my-zsh"
 
-plugins=(
-  zsh-autosuggestions
-)
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+precmd() {
+    vcs_info
+}
+
+source $ZSH/oh-my-zsh.sh
+
+# Disable powerlevel10k because it spawns 3 extra processes, which messes up the theme switching
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+# source ~/.p10k.zsh
+# POWERLEVEL9K_DISABLE_GITSTATUS=true
 
 source ~/.zsh/aliases
-source ~/.p10k.zsh
-source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions
+
+[ -f ~/.zsh/aliases.local ] && source ~/.zsh/aliases.local
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -30,3 +44,6 @@ forward () {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.zsh/theme
+theme "$THEME"

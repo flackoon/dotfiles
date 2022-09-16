@@ -215,16 +215,16 @@
     "key": "ctrl+j",
     "command": "workbench.action.navigateDown"
   },
-  {
-    "key": "backspace",
-    "command": "extension.vim_shift+backspace",
-    "when": "editorTextFocus && vim.active && vim.use<S-BS> && !inDebugRepl && vim.mode != 'Insert'"
-  },
-  { 
-    "key": "backspace",
-    "command": "deleteLeft",
-    "when": "textInputFocus" 
-  },
+  // {
+  //   "key": "backspace",
+  //   "command": "extension.vim_shift+backspace",
+  //   "when": "editorTextFocus && vim.active && vim.use<S-BS> && !inDebugRepl && vim.mode != 'Insert'"
+  // },
+  // { 
+  //   "key": "backspace",
+  //   "command": "deleteLeft",
+  //   "when": "textInputFocus" 
+  // },
   {
     "key": "space e",
     "command": "workbench.action.toggleSidebarVisibility",

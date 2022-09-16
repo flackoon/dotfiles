@@ -13,13 +13,13 @@ filetype plugin indent on
 let mapleader = " "
 nnoremap SPACE <Nop>
 
-source ~/.vim/.vimrc.appearance
 source ~/.vim/.vimrc.libsettings
 source ~/.vim/.vimrc.langsupport
 source ~/.vim/.vimrc.keymaps
 source ~/.vim/.vimrc.coc
 " source ~/.vim/.vimrc.ycm
 source ~/.vim/.vimrc.settings
+source ~/.vim/.vimrc.appearance
 
 " Vimdiff settings
 if &diff                             " only for diff mode/vimdiff

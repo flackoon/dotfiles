@@ -29,12 +29,20 @@
 		]
 	},
 	"Make Ruby code block": {
-		"prefix": "```",
+		"prefix": "```ruby",
 		"body": [
 			"```ruby",
-			"$1",
-			"```",
+			"```$1",
 		]
 	},
+	"Make example block": {
+		"prefix": "example",
+		"body": [
+			"<details>",
+			"  <summary>$1</summary>",
+			"  $2",
+			"",
+			"</details>"
+		]
+	}
 }
-

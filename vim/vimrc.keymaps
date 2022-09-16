@@ -54,18 +54,23 @@ nmap     <silent>  <leader>dg2 :diffget //2<CR>
 nmap     <silent>  <leader>dg3 :diffget //3<CR>
 nmap     <silent>  <leader>dp1 :diffput //1<CR>
 
+map      <silent>  <Leader>ra  :call RunCurrentSpecFile()<CR>
+map      <silent>  <Leader>rn  :call RunNearestSpec()<CR>
+map      <silent>  <Leader>rl  :call RunLastSpec()<CR>
 
-map      <silent>  <leader>e :NERDTreeToggle<CR>
-map      <silent>  <F1> :NERDTreeRefreshRoot<CR>
+map      <silent>  <leader>1  :NERDTreeFind<CR>zz
+map      <silent>  <leader>e  :NERDTreeToggle<CR>
 map      <silent>  <leader>hu :GitGutterUndoHunk<CR>
 map      <silent>  <leader>hs :GitGutterStageHunk<CR>
+map      <silent>  <leader>gb :Git blame<CR>
 map      <silent>  <leader>gd :vertical Gdiffsplit<CR>
 map      <silent>  <leader>* :nohlsearch<CR>
 noremap  <silent>  <leader>/ :Commentary<cr>
 nnoremap <silent>  <leader>9 :!tig %<CR>
-vnoremap <silent>  <leader>8 y:exec 'CtrlSF "'.escape(@*, '\\/.*$^~[]').'"'<CR>
+vnoremap <silent>  <leader>8 :exec 'CtrlSF "'.escape(@*, '\\/.*$^~[]').'"'<CR>
 nnoremap <silent>  <leader>7 :CtrlSF <C-R>=expand("<cword>")<CR><CR>
-noremap  <silent>  <Leader>cfp :let @+ = expand("%:p") \| echo 'cb> ' . @+<CR>
+noremap  <silent>  <Leader>cfp :let @+ = expand("%:t") \| echo 'cb> ' . @+<CR>
+noremap  <silent>  <Leader>cffp :let @+ = expand("%:p") \| echo 'cb> ' . @+<CR>
 
 nnoremap <silent>  <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent>  <C-j> :TmuxNavigateDown<cr>

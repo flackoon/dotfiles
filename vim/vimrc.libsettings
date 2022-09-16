@@ -13,6 +13,9 @@ let g:auto_save_silent = 1                                  " do not display the
 let g:auto_save_events = ["InsertLeave", "TextChanged"]     " The events on which AutoSave will perform
 let g:tmux_navigator_no_mappings = 1
 
+let g:rspec_runner = "os_x_iterm2"
+let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
+
 let g:ruby_autocomplete_solargraph = '~/.rbenv/shims/solargraph'
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
@@ -24,6 +27,8 @@ let g:ruby_spellcheck_strings = 1
 
 let g:gitgutter_sign_column_always = 1
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeWinSize=40
 let g:fzf_prefer_tmux = 1
 let $FZF_DEFAULT_OPTIONS="--preview 'bat --color=always'"
 let g:fzf_layout = { 'down': '0%', 'up': '~100%' }

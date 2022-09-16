@@ -2,7 +2,6 @@ let g:material_theme_style = 'darker-community'
 "let g:sonokai_diagnostic_line_highlight = 1
 "let g:sonokai_diagnostic_text_highlight = 1
 
-let g:airline_theme = 'deus'
 "let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
@@ -11,8 +10,40 @@ let g:airline_detect_spell=0
 let g:airline_detect_spelllang=0
 let g:airline#extensions#wordcount#enabled = 0
 
-colorscheme material
+let g:solarized_termcolors=256
+
 if (has('termguicolors'))
   set termguicolors
 endif
 
+function! Dark()
+  set background=dark
+  colorscheme material
+  let g:airline_theme = 'deus'
+
+  try
+    execute "AirlineRefresh"
+  catch
+  endtry
+endfunction
+
+function! Light()
+  set background=light
+  colorscheme everforest
+  let g:everforest_background = 'soft'
+  let g:airline_theme = 'everforest'
+
+  try
+    execute "AirlineRefresh"
+  catch
+  endtry
+endfunction
+
+command! Dark call Dark()
+command! Light call Light()
+
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+  call Dark()
+else
+  call Light()
+endif

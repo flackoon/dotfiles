@@ -14,9 +14,7 @@ git_commits_info() {
   local staged_changes=$(git diff --cached --numstat | wc -l | tr -d -c 0-9)
   local stashed_commits=$(git stash list | wc -l | tr -d -c 0-9)
 
-  if [[ -z "$branch" || -z "$remote_branch" ]]; then
-    echo ""
-  else
+  if [[ ! -z "$branch" && ! -z "$remote_branch" ]]; then
     local numbers=$(git rev-list --left-right --count origin/$branch...HEAD | tr -d -c 0-9)
   fi
 
@@ -25,7 +23,7 @@ git_commits_info() {
 
   output=""
   if [[ commits_behind_count -gt 0 ]]; then
-    output="%{$fg[red]%}$commits_behind_count↓ %{$reset_color%}"
+    output="%{$fg_bold[red]%}$commits_behind_count↓ "
   fi
 
   if [[ commits_ahead_count -gt 0 ]]; then
@@ -33,22 +31,22 @@ git_commits_info() {
   fi
 
   if [[ stashed_commits -gt 0 ]]; then
-    output="$output%{$fg_bold[yellow]%}$stashed_commits* "
+    output="$output%{$fg_bold[cyan]%}$stashed_commits* "
   fi
 
   if [[ unstaged_changes -gt 0 ]]; then
-    output="$output%{$fg_bold[cyan]%}~$unstaged_changes%{$reset_color%} "
+    output="$output%{$fg_bold[yellow]%}$unstaged_changes~ "
   fi
 
   if [[ staged_changes -gt 0 ]]; then
-    output="$output%{$fg_bold[blue]%}+$staged_changes%{$reset_color%} "
+    output="$output%{$fg_bold[blue]%}$staged_changes+ "
   fi
 
-  output=$(trim $output)
-  if [ -z $output ]; then
+  output=$(trim $output | tr -d '\n')
+  if [[ -z $output ]]; then
     echo ""
   else
-    echo " %{$reset_color%}| %{$fg_bold[yellow]%}$output"
+    echo " %{$reset_color%}| %{$fg_bold[yellow]%}$output%{$reset_color%}"
   fi
 }
 

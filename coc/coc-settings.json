@@ -10,6 +10,9 @@
     "typescriptreact"
   ],
   "coc.preferences.formatOnType": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
   "tsserver.formatOnType": true,
   "eslint.autoFixOnSave": false, 
   "eslint.options": {

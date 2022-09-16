@@ -13,46 +13,53 @@ vo() {
   eval "$(scmpuff expand -- "$EDITOR" "$@")"
 }
 
+be() {
+  bundle exec "$@"
+}
+
+see() {
+  bat "$(scmpuff expand -- "$@")"
+}
+
 unalias gd
 gd() {
-  git difftool $(scmpuff expand -- "$@")
+  git diff $(scmpuff expand -- "$@")
 }
 
 gds() {
-  git difftool --staged $(scmpuff expand -- "$@")
+  git diff --staged $(scmpuff expand -- "$@")
 }
 
 gbc(){
   git checkout -b "$@"
 }
 
-gm(){
-  git merge "$@"
-}
-
-gr() {
-  git reset "$@"
-}
-
-gri(){
-  git rebase -i "$@"
-}
-
-unalias grs
-grs(){
-  git reset --soft "$@"
-}
+# unalias grs
+# grs(){
+#   git reset --soft "$@"
+# }
 
 gch() {
   git checkout "$@"
 }
 
+# fbr - checkout git branch (including remote branches)
+gbl() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
 unstage() {
   git reset -- "$@"
+  gst
 }
 
 revert() {
   git checkout -- "$@"
+  gst
 }
 
 revertall() {
@@ -67,6 +74,74 @@ rtr() {
   bundle exec rspec "$@"
 }
 
-rmg() { 
+rmg() {
   bundle exec rails generate migration "$@"
+}
+
+tma() {
+  tmux attach-session -t "$1"
+}
+
+tmk() {
+  tmux kill-session -t "$1"
+  tml
+}
+
+opr() {
+  repo=`git config --get remote.origin.url | sed 's/\.git$//' | cut -d':' -f2-`
+  open "https://www.github.com/$repo/compare/$(git rev-parse --abbrev-ref HEAD)"
+}
+
+# Switch OS, iterm and vim color theme
+theme() {
+  current_theme="$(defaults read -g AppleInterfaceStyle 2>/dev/null || echo "light")"
+
+  # Update iterm theme
+  echo -e "\033]50;SetProfile=$1\a"
+
+  if [ -f ~/.zsh/theme ]; then
+    echo THEME="$1" > ~/.zsh/theme
+  else
+    touch ~/.zsh/theme && echo THEME="$1" > ~/.zsh/theme
+  fi
+
+  if [[ ${(L)current_theme} != "$1" ]]; then
+    # Iterate over all sessions and for every pane running VIM switch the theme
+    for session in "${(@f)$(tmux list-sessions -F '#{session_name}')}"; do
+      for window in "${(@f)$(tmux list-windows -t "$session" -F $session:#{window_index})}"; do
+        for panel in "${(@f)$(tmux list-panes -t $window -F $session:#{window_index}.#{pane_index})}"; do
+          theme="${(C)1}"
+          is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+              | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+
+          tmux if-shell -t "$panel" "$is_vim" "send-keys -t $panel escape ENTER"
+          tmux if-shell -t "$panel" "$is_vim" "send-keys -t $panel ':$theme' ENTER"
+        done
+      done
+    done
+
+    # Switch OS theme
+    if [[ "$1" == "dark" ]]; then
+      osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = true" >/dev/null
+    else
+      osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = false" >/dev/null
+    fi
+
+
+    # Update VS Code config
+    old_dir="$(pwd)"
+    cd ~/Library/Application\ Support/Code/User >/dev/null
+    if [[ "$1" == "dark" ]]; then
+      sed -i '' 's/"workbench.colorTheme": "Everforest/\/\/ "workbench.colorTheme": "Everforest/' settings.json
+      sed -i '' 's/\/\/ "workbench.colorTheme": "Community/"workbench.colorTheme": "Community/' settings.json
+      sed -i '' 's/\/\/ "editor.background"/"editor.background"/' settings.json
+      sed -i '' 's/\/\/ "sideBar.background"/"sideBar.background"/' settings.json
+    else
+      sed -i '' 's/\/\/ "workbench.colorTheme": "Everforest/"workbench.colorTheme": "Everforest/' settings.json
+      sed -i '' 's/"workbench.colorTheme": "Community/\/\/ "workbench.colorTheme": "Community/' settings.json
+      sed -i '' 's/"editor.background"/\/\/ "editor.background"/' settings.json
+      sed -i '' 's/"sideBar.background"/\/\/ "sideBar.background"/' settings.json
+    fi
+    cd "$old_dir" >/dev/null
+  fi
 }

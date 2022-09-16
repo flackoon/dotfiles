@@ -1,0 +1,20 @@
+# /Users/benjaminfranklin/.config/tmuxinator/chores.yml
+name: chores
+root: ~/Documents/Code/Projects/chores
+
+windows:
+  - vim:
+  - git:
+  - rails:
+      layout: tiled
+      panes:
+        - bin/rails s -p 3000
+  - webpack:
+      layout: tiled
+      panes:
+        - bin/webpack-dev-server
+  - console:
+      layout: tiled
+      panes:
+        - bin/rails c -- --nomultiline
+

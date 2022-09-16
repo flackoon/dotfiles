@@ -3,32 +3,30 @@ name: app
 root: ~/Documents/Code/Dext/application
 
 windows:
-  - cheatsheet:
-      layout: tiled
-      panes:
-        - vim ~/Documents/Code/School/gist/vim.txt ~/Documents/Code/School/gist/tmux.txt ~/Documents/Code/School/gist/tig.txt -O
   - vim:
   - git:
-      layout: main-vertical
+  - server:
+      layout: tiled
       panes:
-        -
-        - tig
+        - bin/rails server -p 3000
+  - webpack:
+      layout: tiled
+      panes:
+        - bin/yarn && bin/webpack-dev-server
   - console:
       layout: tiled
       panes:
         - bin/rails c -- --nomultiline
-  - server:
-      layout: main-horizontal
+  - sidekiq:
+      layout: tiled
       panes:
         - bin/deploy/sidekiq
-        - bin/rails server -p 3000
+  - psql:
+      layout: tiled
+      panes:
+        - psql receiptbank_development
   - cables:
       layout: main-vertical
       panes:
         - bin/anycable --log-grpc --debug --log-level=debug
         - anycable-go --host=localhost --port=3334 --headers="cookie,origin" --debug=true --log_level=debug
-  - webpack:
-      layout: main-vertical
-      panes:
-        - bin/rake log:clear && tail -f log/development.log
-        - bin/yarn && bin/webpack-dev-server
