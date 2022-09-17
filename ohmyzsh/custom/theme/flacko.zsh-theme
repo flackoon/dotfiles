@@ -15,11 +15,11 @@ git_commits_info() {
   local stashed_commits=$(git stash list | wc -l | tr -d -c 0-9)
 
   if [[ ! -z "$branch" && ! -z "$remote_branch" ]]; then
-    local numbers=$(git rev-list --left-right --count origin/$branch...HEAD | tr -d -c 0-9)
+    local numbers=$(git rev-list --left-right --count origin/$branch...HEAD)
   fi
 
-  local commits_behind_count=${numbers:0:1}
-  local commits_ahead_count=${numbers:1:2}
+  local commits_behind_count=`echo $numbers | awk '{print $1}'`
+  local commits_ahead_count=`echo $numbers | awk '{print $2}'`
 
   output=""
   if [[ commits_behind_count -gt 0 ]]; then
