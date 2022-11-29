@@ -3,6 +3,11 @@ set -g mouse on
 set -g default-terminal "xterm-256color"
 set -g history-limit 15000
 
+# Rebind Prefix Key
+unbind-key C-b
+set-option -g prefix C-x
+bind-key C-a send-prefix
+
 #bind-key -T copy-mode-vi 'C-\' select-pane -l
 
 # Smart pane switching with awareness of Vim splits.
