@@ -10,12 +10,12 @@ alias gst="scmpuff_status"
 alias cgst="clear && gst"
 alias gh="git log --graph --format=\"%C(bold blue)%h %C(white)| %s | %C(yellow)(%aN) %C(green)%cs\""
 alias gs="git stash"
-alias gsh="git show"
 alias gsp="git stash pop"
 alias gsa="git stash apply"
 alias gsl="git stash list"
 alias gss="git stash --staged"
 alias gca="git commit -v --no-edit --amend"
+alias gcam="git commit -v --amend"
 alias gchm="git checkout master"
 alias gchs="git checkout staging"
 alias gchp="git cherry-pick"
@@ -40,6 +40,9 @@ alias bi="bundle install"
 alias wf="bin/webpack-flush"
 alias wds="bin/webpack-dev-server"
 
+# (Dext) Yarn
+alias yc="yarn codegen"
+
 # Yarn
 alias yd="yarn dev"
 alias ys="yarn start"
@@ -63,3 +66,5 @@ alias tml="tmux list-sessions"
 alias tms="tmuxinator"
 
 alias zzz="pmset sleepnow"
+
+alias python=/usr/bin/python3

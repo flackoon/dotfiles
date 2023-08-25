@@ -1,47 +1,21 @@
 #!/usr/bin/env zsh
 
-# Opens changed files in the last $1 commits
-# Exmaple: vl 2
-vl() {
-  vim `git diff HEAD~$1 --name-only`
-}
-
 # Opens a file in editor
 # The number alias comes from scmpuff
 # Example: vo 1
-vo() {
-  eval "$(scmpuff expand -- "$EDITOR" "$@")"
-}
+vo() { eval "$(scmpuff expand -- "$EDITOR" "$@")" }
 
-be() {
-  bundle exec "$@"
-}
-
-see() {
-  bat "$(scmpuff expand -- "$@")"
-}
+be() { bundle exec "$@" }
 
 unalias gd
-gd() {
-  git diff $(scmpuff expand -- "$@")
-}
-
-gds() {
-  git diff --staged $(scmpuff expand -- "$@")
-}
-
-gbc(){
-  git checkout -b "$@"
-}
-
-# unalias grs
-# grs(){
-#   git reset --soft "$@"
-# }
-
-gch() {
-  git checkout "$@"
-}
+gd() { git diff $(scmpuff expand -- "$@") }
+gds() { git diff --staged $(scmpuff expand -- "$@") }
+gsh() { git show $(scmpuff expand -- "$@") }
+gbc(){ git checkout -b "$@" }
+gch() { git checkout "$@" }
+unstage() { git reset -- "$@"; gst }
+revert() { git checkout -- "$@"; gst }
+fixup(){ git commit --fixup "$@" }
 
 # fbr - checkout git branch (including remote branches)
 gbl() {
@@ -52,44 +26,17 @@ gbl() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-unstage() {
-  git reset -- "$@"
-  gst
-}
 
-revert() {
-  git checkout -- "$@"
-  gst
-}
-
-revertall() {
-  git clean -f -d
-}
-
-fixup(){
-  git commit --fixup "$@"
-}
-
-rtr() {
-  bundle exec rspec "$@"
-}
-
-rmg() {
-  bundle exec rails generate migration "$@"
-}
-
-tma() {
-  tmux attach-session -t "$1"
-}
-
-tmk() {
-  tmux kill-session -t "$1"
-  tml
-}
+tma() { tmux attach-session -t "$1" }
+tmk() { tmux kill-session -t "$1"; tml }
 
 opr() {
   repo=`git config --get remote.origin.url | sed 's/\.git$//' | cut -d':' -f2-`
-  open "https://www.github.com/$repo/compare/$(git rev-parse --abbrev-ref HEAD)"
+  against="$1"
+  if [[ -z $against ]]; then
+    against="master"
+  fi
+  open "https://www.github.com/$repo/compare/$against...$(git rev-parse --abbrev-ref HEAD)"
 }
 
 # Switch OS, iterm and vim color theme
@@ -132,13 +79,13 @@ theme() {
     old_dir="$(pwd)"
     cd ~/Library/Application\ Support/Code/User >/dev/null
     if [[ "$1" == "dark" ]]; then
-      sed -i '' 's/"workbench.colorTheme": "Everforest/\/\/ "workbench.colorTheme": "Everforest/' settings.json
-      sed -i '' 's/\/\/ "workbench.colorTheme": "Community/"workbench.colorTheme": "Community/' settings.json
+      sed -i '' 's/"workbench.colorTheme": "Everforest Light/\/\/ "workbench.colorTheme": "Everforest Light/' settings.json
+      sed -i '' 's/\/\/ "workbench.colorTheme": "Everforest Dark/"workbench.colorTheme": "Everforest Dark/' settings.json
       sed -i '' 's/\/\/ "editor.background"/"editor.background"/' settings.json
       sed -i '' 's/\/\/ "sideBar.background"/"sideBar.background"/' settings.json
     else
-      sed -i '' 's/\/\/ "workbench.colorTheme": "Everforest/"workbench.colorTheme": "Everforest/' settings.json
-      sed -i '' 's/"workbench.colorTheme": "Community/\/\/ "workbench.colorTheme": "Community/' settings.json
+      sed -i '' 's/\/\/ "workbench.colorTheme": "Everforest Light/"workbench.colorTheme": "Everforest Light/' settings.json
+      sed -i '' 's/"workbench.colorTheme": "Everforest Dark/\/\/ "workbench.colorTheme": "Everforest Dark/' settings.json
       sed -i '' 's/"editor.background"/\/\/ "editor.background"/' settings.json
       sed -i '' 's/"sideBar.background"/\/\/ "sideBar.background"/' settings.json
     fi

@@ -14,6 +14,13 @@ export TERM=xterm-256color
 export GPG_TTY=$(tty)
 export BAT_THEME="TwoDark"
 
+# export GOROOT=/usr/local/go
+# export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH="$PATH:$HOME/.foundry/bin"
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # ZSH
 ZSH_THEME="flacko"
 plugins=(zsh-autosuggestions)
@@ -47,3 +54,4 @@ forward () {
 
 source ~/.zsh/theme
 theme "$THEME"
+
