@@ -12,7 +12,7 @@ windows:
   - webpack:
       layout: tiled
       panes:
-        - bin/yarn && bin/webpack-dev-server
+        - bin/yarn && HMR=true bin/webpack-dev-server
   - console:
       layout: tiled
       panes:
