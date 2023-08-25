@@ -10,7 +10,7 @@ task :homebrew do
     tig
     jump
     gnupg
-    midnight-commander
+    MonitorControl
     tmux
     tree
     vim
@@ -22,10 +22,12 @@ task :homebrew do
     cmake
     python
     node
+    nvm
     rbenv
     ripgrep
     iterm2
     ctags
+    stats
   ]
   exec 'brew', 'install', *formulas
 end
