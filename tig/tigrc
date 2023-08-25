@@ -2,4 +2,4 @@ set main-view-date-display = relative
 set line-graphics = utf-8
 
 bind generic 9 !@sh -c "echo %(commit) | pbcopy"
-bind generic d @tmux popup -w 100% -h 100% -E 'DELTA_PAGER="less -RKc" git show %(commit)'
+# bind generic d @tmux popup -w 100% -h 100% -E 'DELTA_PAGER="less -RKc" git show %(commit)'
