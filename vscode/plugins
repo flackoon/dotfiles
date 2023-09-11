@@ -54,3 +54,4 @@ code --install-extension wayou.file-icons-mac
 code --install-extension wingrunr21.vscode-ruby
 code --install-extension yzhang.markdown-all-in-one
 code --install-extension zoxon.monokai-light
+code --install-extension vquelque.markfiles

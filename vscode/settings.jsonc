@@ -102,7 +102,8 @@
     {"before": ["<C-d>"], "after": ["<C-d>", "zz"]},
     {"before": ["<C-y>"], "commands": ["scrollLineUp"]},
     {"before": ["<C-e>"], "commands": ["scrollLineDown"]},
-    {"before": ["#"], "after": ["^"]}
+    {"before": ["#"], "after": ["^"]},
+    {"before": ["<leader>", "m", "f"], "commands": ["markfiles.markUnmarkActiveFile"]}
   ],
   "css.validate": false,
   "editor.tabSize": 2,
@@ -156,13 +157,13 @@
   "search.mode": "reuseEditor",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "fluent-icons",
-  // "workbench.colorTheme": "Everforest Dark",
-  "workbench.colorTheme": "Everforest Light",
+  "workbench.colorTheme": "Everforest Dark",
+  // "workbench.colorTheme": "Everforest Light",
   "workbench.colorCustomizations": {
-    // // // "editor.background": "#24323c",
-    // // // "sideBar.background": "#24323c",
+    // // "editor.background": "#24323c",
+    // // "sideBar.background": "#24323c",
     "editor.findMatchHighlightBackground": "#f5b025",
-    "editor.findMatchBackground": "#f5b025"
+    "editor.findMatchBackground": "#f5b025",
     // "panel.background": "#24323c",
     // "terminalCursor.background": "#322931",
     // "terminalCursor.foreground": "#b9b5b8",
@@ -191,6 +192,7 @@
     // Retire these until "editor.selectionForeground" starts working eventually :)
     // "editor.selectionBackground": "#f5b025",
     // "editor.selectionForeground": "#000000",
+    "markfiles.markedFileColor": "#ffaa0d"
   },
   "explorer.confirmDelete": false,
   "terminal.integrated.cursorBlinking": true,
@@ -243,4 +245,12 @@
   "codesnap.boxshadow": "rgba(0, 0, 0, 0.55) 0px 0px 10px",
   "workbench.editor.enablePreview": false,
   "solidity-va.deco.arguments": false,
+  "editor.accessibilitySupport": "off",
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 3,
+  "inline-bookmarks.view.expanded": true,
+  "telemetry.telemetryLevel": "off",
+  "markfiles.colorMarkedFile": "both",
+  "markfiles.markedFileIcon": "🔸",
+  "workbench.activityBar.visible": false
 }
