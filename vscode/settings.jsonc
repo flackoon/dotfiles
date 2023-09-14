@@ -159,40 +159,15 @@
   "workbench.productIconTheme": "fluent-icons",
   "workbench.colorTheme": "Everforest Dark",
   // "workbench.colorTheme": "Everforest Light",
+  // https://code.visualstudio.com/api/references/theme-color#editor-colors
   "workbench.colorCustomizations": {
-    // // "editor.background": "#24323c",
-    // // "sideBar.background": "#24323c",
     "editor.findMatchHighlightBackground": "#f5b025",
     "editor.findMatchBackground": "#f5b025",
-    // "panel.background": "#24323c",
-    // "terminalCursor.background": "#322931",
-    // "terminalCursor.foreground": "#b9b5b8",
-    // "terminal.background": "#24323c",
-    // "terminal.foreground": "#b9b5b8",
-    // "terminal.ansiBlack": "#322931",
-    // "terminal.ansiBlue": "#1290bf",
-    // "terminal.ansiBrightBlack": "#797379",
-    // "terminal.ansiBrightBlue": "#1290bf",
-    // "terminal.ansiBrightCyan": "#149b93",
-    // "terminal.ansiBrightGreen": "#8fc13e",
-    // "terminal.ansiBrightMagenta": "#c85e7c",
-    // "terminal.ansiBrightRed": "#dd464c",
-    // "terminal.ansiBrightWhite": "#ffffff",
-    // "terminal.ansiBrightYellow": "#fdcc59",
-    // "terminal.ansiCyan": "#149b93",
-    // "terminal.ansiGreen": "#8fc13e",
-    // "terminal.ansiMagenta": "#c85e7c",
-    // "terminal.ansiRed": "#dd464c",
-    // "terminal.ansiWhite": "#b9b5b8",
-    // "terminal.ansiYellow": "#fdcc59",
-    // "statusBar.foreground": "#000",
-    // "statusBar.background": "#88ba66",
-    // "statusBar.noFolderBackground": "#88ba66",
-    // "statusBar.debuggingBackground": "#88ba66"
-    // Retire these until "editor.selectionForeground" starts working eventually :)
-    // "editor.selectionBackground": "#f5b025",
-    // "editor.selectionForeground": "#000000",
+    "editor.selectionBackground": "#f5b02563",
+    "editor.wordHighlightBackground": "#f5b02545",
     "markfiles.markedFileColor": "#ffaa0d"
+    // Retire these until "editor.selectionForeground" starts working eventually :)
+    // "editor.selectionForeground": "#000000",
   },
   "explorer.confirmDelete": false,
   "terminal.integrated.cursorBlinking": true,
@@ -252,5 +227,43 @@
   "telemetry.telemetryLevel": "off",
   "markfiles.colorMarkedFile": "both",
   "markfiles.markedFileIcon": "🔸",
-  "workbench.activityBar.visible": false
+  "workbench.activityBar.visible": false,
+  "inline-bookmarks.expert.custom.words.mapping": {
+    "orange": ["@lead[\\s]", "@warn[\\s]"],
+    "blue": ["@info[\\s]", "@note[\\s]"],
+    "yellow": ["@check[\\s]"],
+    "green": ["@ok[\\s]"],
+    "dark-green": ["@submitted[\\s]"],
+    "red": ["@issue[\\s]"]
+  },
+  "inline-bookmarks.expert.custom.styles": {
+    "orange": {
+      "gutterIconColor": "#f5a142",
+      "color": "#f5a142"
+    },
+    "blue": {
+      "gutterIconColor": "rgba(66, 161, 245, .3)",
+      "color": "#42a1f5"
+    },
+    "purple": {
+      "gutterIconColor": "#9932CC",
+      "color": "#9932CC"
+    },
+    "yellow": {
+      "gutterIconColor": "#FFC300",
+      "color": "#FFC300"
+    },
+    "green": {
+      "gutterIconColor": "rgba(167, 232, 37, .3)",
+      "color": "#a7e825"
+    },
+    "dark-green": {
+      "gutterIconColor": "rgba(0, 163, 0, .3)",
+      "color": "#00A300"
+    },
+    "red": {
+      "gutterIconColor": "#fc1c03",
+      "color": "#fc1c03"
+    }
+  },
 }
