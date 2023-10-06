@@ -39,11 +39,12 @@ let g:coc_global_extensions = [
 " \ 'coc-markdownlint',
 " \ 'coc-graphql',
 
-nmap      <silent> gd        <Plug>(coc-definition)
-nmap      <silent> gy        <Plug>(coc-type-definition)
-nmap      <silent> gi        <Plug>(coc-implementation)
-nmap      <silent> gr        <Plug>(coc-references)
-nmap      <leader>do         <Plug>(coc-codeaction)
+nnoremap  <silent> <leader>gs         :CocList outline<CR>
+nmap      <silent> gd                 <Plug>(coc-definition)
+nmap      <silent> gy                 <Plug>(coc-type-definition)
+nmap      <silent> gi                 <Plug>(coc-implementation)
+nmap      <silent> gr                 <Plug>(coc-references)
+nmap               <leader>do         <Plug>(coc-codeaction)
 
 nnoremap   <leader>?          <Plug>(coc-codeacton-cursor)
 " Formatting selected code.
