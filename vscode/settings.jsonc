@@ -228,6 +228,7 @@
   "markfiles.colorMarkedFile": "both",
   "markfiles.markedFileIcon": "🔸",
   "workbench.activityBar.visible": false,
+  "window.density.editorTabHeight": "compact",
   "inline-bookmarks.expert.custom.words.mapping": {
     "orange": ["@lead[\\s]", "@warn[\\s]"],
     "blue": ["@info[\\s]", "@note[\\s]"],
