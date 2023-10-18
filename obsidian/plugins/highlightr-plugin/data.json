@@ -1,0 +1,26 @@
+{
+  "highlighterStyle": "rounded",
+  "highlighterMethods": "inline-styles",
+  "highlighters": {
+    "Aqua": "#32a8a6",
+    "Red": "#fc1c03",
+    "Orange": "#F5A142",
+    "Green": "#a7e825",
+    "Dark Green": "#00A300",
+    "Blue": "#42a1f5",
+    "Purple": "#ce33d6",
+    "Grey": "#CACFD9A6",
+    "Yellow": "#FFE000"
+  },
+  "highlighterOrder": [
+    "Aqua",
+    "Red",
+    "Orange",
+    "Yellow",
+    "Green",
+    "Dark Green",
+    "Blue",
+    "Purple",
+    "Grey"
+  ]
+}
