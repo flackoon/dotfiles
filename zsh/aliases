@@ -68,3 +68,9 @@ alias tms="tmuxinator"
 alias zzz="pmset sleepnow"
 
 alias python=/usr/bin/python3
+
+# Foundry forge
+alias fta="forge test"
+alias ftmt="forge test --match-test"
+alias ftmp="forge test --match-path"
+alias fcvrg="forge coverage --report lcov"
