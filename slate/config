@@ -18,3 +18,5 @@ bind right:ctrl;alt  move      screenSizeX/2;screenOriginY      screenSizeX/2;sc
 # full screen
 bind return:ctrl;alt move      screenOriginX;screenOriginY        screenSizeX;screenSizeY
 
+# center
+bind c:ctrl;alt      move      (screenSizeX-windowSizeX)/2;(screenSizeY-windowSizeY)/2 windowSizeX;windowSizeY
