@@ -2,21 +2,22 @@
 config defaultToCurrentScreen true
 
 # 4/10ths left|center|right
-bind d:ctrl;shift    move      screenOriginX;screenOriginY screenSizeX*3.8/10;screenSizeY
-bind f:ctrl;shift    move screenSizeX*6.2/20;screenOriginY screenSizeX*3.8/10;screenSizeY
-bind g:ctrl;shift    move screenSizeX*6.2/10;screenOriginY screenSizeX*3.8/10;screenSizeY
+bind d:ctrl;shift    move  screenOriginX;screenOriginY screenSizeX*3.8/10;screenSizeY
+bind f:ctrl;shift    move  screenSizeX*6.2/20;screenOriginY screenSizeX*3.8/10;screenSizeY
+bind g:ctrl;shift    move  screenSizeX*6.2/10;screenOriginY screenSizeX*3.8/10;screenSizeY
 
 # 6/10ths left|center|right
-bind d:ctrl;alt      move      screenOriginX;screenOriginY screenSizeX*6.2/10;screenSizeY
-bind f:ctrl;alt      move screenSizeX*3.8/20;screenOriginY screenSizeX*6.2/10;screenSizeY
-bind g:ctrl;alt      move screenSizeX*3.8/10;screenOriginY screenSizeX*6.2/10;screenSizeY
+bind d:ctrl;alt      move  screenOriginX;screenOriginY screenSizeX*6.2/10;screenSizeY
+bind f:ctrl;alt      move  screenOriginX+(screenSizeX*3.8/20);screenOriginY screenSizeX*6.2/10;screenSizeY
+bind g:ctrl;alt      move  screenOriginX+(screenSizeX*3.8/10);screenOriginY screenSizeX*6.2/10;screenSizeY
 
 # left half | right half
-bind left:ctrl;alt   move      screenOriginX;screenOriginY      screenSizeX/2;screenSizeY
-bind right:ctrl;alt  move      screenSizeX/2;screenOriginY      screenSizeX/2;screenSizeY
+bind left:ctrl;alt   move  screenOriginX;screenOriginY      screenSizeX/2;screenSizeY
+bind right:ctrl;alt  move  screenOriginX+screenSizeX/2;screenOriginY      screenSizeX/2;screenSizeY
 
 # full screen
-bind return:ctrl;alt move      screenOriginX;screenOriginY        screenSizeX;screenSizeY
+bind return:ctrl;alt move  screenOriginX;screenOriginY        screenSizeX;screenSizeY
 
 # center
-bind c:ctrl;alt      move      screenOriginX+((screenSizeX-windowSizeX)/2);screenOriginY+((screenSizeY-windowSizeY)/2) windowSizeX;windowSizeY
+bind c:ctrl;alt      move  screenOriginX+((screenSizeX-windowSizeX)/2);screenOriginY+((screenSizeY-windowSizeY)/2) windowSizeX;windowSizeY
+
