@@ -4,13 +4,15 @@
 	graph = log --graph --oneline
 [core]
 	excludesfile = ~/.gitignore
-  pager   = less
+  pager = less -LRc --mouse
 [pager]
-  diff    = LESS=c delta
-  show    = LESS=c delta
-  log     = LESS=c delta
-  reflog  = LESS=c delta
-  status  = LESS=c delta
+  diff    = LESS='c --mouse' delta
+  show    = LESS='c --mouse' delta
+  log     = LESS='c --mouse' delta
+  reflog  = LESS='c --mouse' delta
+  status  = LESS='c --mouse' delta
+[tig]
+  mouse = true
 [interactive]
 	diffFilter = delta --color-only
 [delta]
