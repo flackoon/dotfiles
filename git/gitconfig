@@ -4,13 +4,13 @@
 	graph = log --graph --oneline
 [core]
 	excludesfile = ~/.gitignore
-  pager = less -LRc --mouse
+  pager = less -LRc --mouse --wheel-lines=3
 [pager]
-  diff    = LESS='c --mouse' delta
-  show    = LESS='c --mouse' delta
-  log     = LESS='c --mouse' delta
-  reflog  = LESS='c --mouse' delta
-  status  = LESS='c --mouse' delta
+  diff    = LESS='-LRc --mouse --wheel-lines=3' delta
+  show    = LESS='-LRc --mouse --wheel-lines=3' delta
+  log     = LESS='-LRc --mouse --wheel-lines=3' delta
+  reflog  = LESS='-LRc --mouse --wheel-lines=3' delta
+  status  = LESS='-LRc --mouse --wheel-lines=3' delta
 [tig]
   mouse = true
 [interactive]
