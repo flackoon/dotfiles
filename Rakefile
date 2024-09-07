@@ -28,6 +28,7 @@ task :homebrew do
     iterm2
     ctags
     stats
+    zsh-syntax-highlighting
   ]
   exec 'brew', 'install', *formulas
 end
