@@ -530,3 +530,11 @@ span.math { font-size: 18px; }
 /* Hide block identifiers */
 .cm-s-obsidian span.cm-footref, .cm-s-obsidian span.cm-blockid { display: none !important; }
 
+/* Even out code blocks in table cells as they are grayed out otherwise when blured (not focused) */
+.table-cell-wrapper > code {
+    color: var(--inline-code) !important;
+    background: var(--code-block) !important;
+    font-size: 14px !important;
+    padding: 1px;
+    font-style: italic !important;
+}
