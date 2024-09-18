@@ -538,3 +538,8 @@ span.math { font-size: 18px; }
     padding: 1px;
     font-style: italic !important;
 }
+
+/* Hide empty line before tables */
+.cm-line:has(+ .cm-embed-block.cm-table-widget) {
+    display: none;
+}
