@@ -12,11 +12,15 @@ bind f:ctrl;alt      move  screenOriginX+(screenSizeX*3.8/20);screenOriginY scre
 bind g:ctrl;alt      move  screenOriginX+(screenSizeX*3.8/10);screenOriginY screenSizeX*6.2/10;screenSizeY
 
 # left half | right half
-bind left:ctrl;alt   move  screenOriginX;screenOriginY      screenSizeX/2;screenSizeY
+bind left:ctrl;alt   move  screenOriginX;screenOriginY                    screenSizeX/2;screenSizeY
 bind right:ctrl;alt  move  screenOriginX+screenSizeX/2;screenOriginY      screenSizeX/2;screenSizeY
 
+# upper half | bottom half
+bind up:ctrl;alt     move  screenOriginX;screenOriginY                    screenSizeX;screenSizeY/2
+bind down:ctrl;alt   move  screenOriginX;screenOriginY+screenSizeY/2      screenSizeX;screenSizeY/2
+
 # full screen
-bind return:ctrl;alt move  screenOriginX;screenOriginY        screenSizeX;screenSizeY
+bind return:ctrl;alt move  screenOriginX;screenOriginY                    screenSizeX;screenSizeY
 
 # center
 bind c:ctrl;alt      move  screenOriginX+((screenSizeX-windowSizeX)/2);screenOriginY+((screenSizeY-windowSizeY)/2) windowSizeX;windowSizeY
