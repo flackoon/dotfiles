@@ -528,7 +528,9 @@ span.math { font-size: 18px; }
 } */
 
 /* Hide block identifiers */
-.cm-s-obsidian span.cm-footref, .cm-s-obsidian span.cm-blockid { display: none !important; }
+/* .cm-s-obsidian span.cm-footref, .cm-s-obsidian span.cm-blockid { display: none !important; } */
+/* Actually just make them almost invisible */
+.cm-s-obsidian span.cm-footref, .cm-s-obsidian span.cm-blockid { opacity: 0.15; color: var(--fg-dark); }
 
 /* Even out code blocks in table cells as they are grayed out otherwise when blured (not focused) */
 .table-cell-wrapper > code {
