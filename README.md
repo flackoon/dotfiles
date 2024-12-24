@@ -1,3 +1,15 @@
+## Apps
+
+- Virtualization - [UTM](https://mac.getutm.app/)
+- Power Management - [AlDente](https://apphousekitchen.com/)
+- Keyboard Remapping - [Karabiner-Elements](https://karabiner-elements.pqrs.org/)
+- Mouse Configurator - [LogiOptions](https://www.logitech.com/en-eu/software/logi-options-plus.html)
+- Notetaking - [Obsidian](https://obsidian.md/)
+- Spotlight - [Raycast](https://www.raycast.com/) 
+- Window Management - [Slate](https://github.com/jigish/slate)
+- Calendar - [Fantastical](https://flexibits.com/fantastical)
+- Misc - [Pictogram](https://pictogramapp.com/)
+
 ## Adding GPG signing keys for GitHub
 
 1. Generate a key - `gpg --full-generate-key`
