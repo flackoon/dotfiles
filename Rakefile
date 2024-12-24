@@ -29,6 +29,9 @@ task :homebrew do
     ctags
     stats
     zsh-syntax-highlighting
+    zsh-autosuggestions
+    git-lfs
+    jordanbaird-ice
   ]
   exec 'brew', 'install', *formulas
 end
