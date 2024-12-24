@@ -8,6 +8,7 @@
     "Behaviour",
     "brainer",
     "codegen",
+    "collateralized",
     "commited",
     "constituion",
     "Craco",
@@ -15,13 +16,18 @@
     "extralight",
     "extrasmall",
     "Failable",
+    "finalise",
     "funder",
     "funders",
     "goodbag",
+    "hasher",
     "hitpoints",
     "Keyof",
     "kwargs",
     "Mapish",
+    "OVERRIDABLE",
+    "predeploy's",
+    "predeploys",
     "referes",
     "semibold",
     "Stylelint",
@@ -30,20 +36,15 @@
     "typeof",
     "Xero"
   ],
+  "vim.shell": "/bin/zsh",
   "vim.easymotion": true,
   "vim.incsearch": true,
+  "vim.textwidth": 120,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.foldfix": true,
   "vim.statusBarColorControl": false,
-  // "vim.statusBarColors.insert": "#519eea",
-  // "vim.statusBarColors.normal": "#88ba66",
-  // "vim.statusBarColors.visual": "#b75dd4",
-  // "vim.statusBarColors.visualblock": "#b75dd4",
-  // "vim.statusBarColors.replace": "#d65461",
-  // "vim.statusBarColors.visualline": "#b75dd4",
-  // "vim.statusBarColors.commandlineinprogress": "#007acc",
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
@@ -61,31 +62,50 @@
       "commands": ["workbench.action.closeAllEditors", "workbench.action.reopenClosedEditor"]
     },
     {"before": ["<C-w>", "v"], "commands": ["workbench.action.splitEditor"]},
+    {"before": ["<C-w>", "s"], "commands": ["workbench.action.splitEditorDown"]},
     {
       "before": ["<leader>", "."],
       "commands": ["editor.toggleFold", "editor.action.cancelSelectionAnchor", "extension.vim_escape"]
     },
-    {"before": ["<leader>", ","], "commands": ["editor.createFoldingRangeFromSelection"]},
+    // {"before": ["<leader>", ","], "commands": ["editor.createFoldingRangeFromSelection"]},
     {"before": ["<leader>", "/"], "commands": ["editor.action.commentLine"]},
     {"before": ["<leader>", "h", "u"], "commands": ["git.revertSelectedRanges", "git.revertChange"]},
     {"before": ["<leader>", "e"], "commands": ["workbench.action.toggleSidebarVisibility"]},
     {"before": ["u"], "commands": ["undo"]},
     {"before": ["<C-r>"], "commands": ["redo"]},
     {"before": ["<leader>", "g", "d"], "commands": ["editor.action.revealDefinition"]},
+    {"before": ["<leader>", "g", "s", "d"], "commands": ["editor.action.revealDefinitionAside"]},
     {"before": ["<leader>", "g", "r"], "commands": ["references-view.findReferences"]},
     {"before": ["<leader>", "r", "n"], "commands": ["editor.action.rename"]},
     {"before": ["<leader>", "*"], "commands": [":nohl"]},
     {"before": ["<C-c>"], "commands": ["search.action.cancel"]},
     {"before": ["<leader>", "c", "f", "p"], "commands": ["copyFilePath"]},
     {"before": ["<leader>", "1"], "commands": ["workbench.files.action.showActiveFileInExplorer"]},
-    {"before": ["<leader>", "-"], "commands": ["editor.removeManualFoldingRanges"]}
+    {"before": ["<leader>", "-"], "commands": ["editor.removeManualFoldingRanges"]},
+    {"before": ["<leader>", "r",  "l"], "commands": ["workbench.action.files.save", "extension.rerunLastCommand"]}
   ],
   "vim.visualModeKeyBindings": [
     {"before": ["<BS>"], "commands": ["extension.vim_delete", "extension.vim_escape"]},
-    {"before": ["<leader>", "/"], "commands": ["editor.action.commentLine", "extension.vim_escape"]},
     {"before": ["<leader>", "h", "u"], "commands": ["git.revertSelectedRanges", "git.revertChange"]},
     {"before": ["<leader>", "h", "s"], "commands": ["git.stageSelectedRanges", "git.stageChange"]},
-    {"before": ["<leader>", ","], "commands": ["editor.createFoldingRangeFromSelection"]}
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", ","],
+      "commands": [
+        {"command": "editor.createFoldingRangeFromSelection", "args": []},
+        {"command": "cancelSelection", "args": []},
+        {"command": "extension.vim_escape", "args": []},
+      ]
+    },
+    {
+      "before": ["<leader>", "/"],
+      "commands": [
+        {"command": "editor.action.commentLine", "args": []},
+        {"command": "cancelSelection", "args": []},
+        {"command": "extension.vim_escape", "args": []},
+      ]
+    }
   ],
   "vim.normalModeKeyBindings": [
     {"before": ["<leader>", "g", "d"], "commands": ["git.openChange"]},
@@ -103,7 +123,15 @@
     {"before": ["<C-y>"], "commands": ["scrollLineUp"]},
     {"before": ["<C-e>"], "commands": ["scrollLineDown"]},
     {"before": ["#"], "after": ["^"]},
-    {"before": ["<leader>", "m", "f"], "commands": ["markfiles.markUnmarkActiveFile"]}
+    {"before": ["<leader>", "m", "f"], "commands": ["markfiles.markUnmarkActiveFile"]},
+    {"before": ["<leader>", "c", "m", "t"], "commands": ["hidecomments.toggle"]},
+    {
+      "before": ["<leader>", "c", "t"],
+      // @info There's a `toggleVsCodeCodeCoverageHighlight` ZSH function that toggles that setting in
+      // settings.json, but VSCode Vim is not capable of executing it because it doesn't load ~/.zshrc when
+      // creating a new shell. So it's a TODO.
+      "commands": [{"command": "coverage-gutters.toggleCoverage", "args": []}]
+    }
   ],
   "css.validate": false,
   "editor.tabSize": 2,
@@ -111,7 +139,7 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "alt",
   "editor.tabCompletion": "onlySnippets",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "NomicFoundation.hardhat-solidity",
   "editor.suggest.snippetsPreventQuickSuggestions": true,
   "emmet.triggerExpansionOnTab": true,
   "explorer.autoReveal": false,
@@ -122,15 +150,11 @@
   "code-eol.newlineCharacter": "¬",
   "code-eol.returnCharacter": "¬",
   "git.openDiffOnClick": false,
-  "ruby.useBundler": true, //run non-lint commands with bundle exec
-  "ruby.useLanguageServer": true, // use the internal language server (see below),
-  "ruby.intellisense": "rubyLocate",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "stylelint.configBasedir": "node_modules/stylelint",
   "stylelint.validate": ["css", "scss"],
   "scss.validate": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.fontSize": 15,
   "terminal.external.linuxExec": "iterm",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.defaultProfile.osx": "zsh",
@@ -151,10 +175,14 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[solidity]": {
+    "editor.formatOnSave": false
+  },
   "editor.acceptSuggestionOnCommitCharacter": false,
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.rules.customizations": [{"rule": "*", "severity": "warn"}],
   "search.mode": "reuseEditor",
+  "search.usePCRE2": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.colorTheme": "Everforest Dark",
@@ -165,9 +193,7 @@
     "editor.findMatchBackground": "#f5b025",
     "editor.selectionBackground": "#f5b02563",
     "editor.wordHighlightBackground": "#f5b02545",
-    "markfiles.markedFileColor": "#ffaa0d"
-    // Retire these until "editor.selectionForeground" starts working eventually :)
-    // "editor.selectionForeground": "#000000",
+    "markfiles.markedFileColor": "#ffaa0d",
   },
   "explorer.confirmDelete": false,
   "terminal.integrated.cursorBlinking": true,
@@ -175,13 +201,14 @@
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.hovers.enabled": false,
+  "editor.occurrencesHighlight":"multiFile",
+  "workbench.tree.enableStickyScroll": true,
+  "workbench.panel.showLabels": false,
   "editor.renderWhitespace": "trailing",
-  "vim.textwidth": 120,
   "[markdown]": {
     "editor.wordWrapColumn": 120,
     "editor.wordWrap": "off"
   },
-  "editor.lineHeight": 21,
   "gitlens.blame.avatars": false,
   "prettier.printWidth": 120,
   "gitlens.codeLens.enabled": false,
@@ -192,8 +219,7 @@
   "window.newWindowDimensions": "offset",
   "solidity.telemetry": false,
   "solidity-language-server.trace.server.verbosity": "message",
-  "solidity.formatter": "prettier",
-  "editor.fontSize": 15,
+  "solidity.formatter": "forge",
   "editor.letterSpacing": -0.25,
   "editor.fontWeight": "450",
   "editor.fontFamily": "FiraCode-Retina",
@@ -218,7 +244,6 @@
   "codesnap.containerpadding": "1em",
   "codesnap.backgroundcolor": "#00bcff",
   "codesnap.boxshadow": "rgba(0, 0, 0, 0.55) 0px 0px 10px",
-  "workbench.editor.enablePreview": false,
   "solidity-va.deco.arguments": false,
   "editor.accessibilitySupport": "off",
   "workbench.editor.limit.perEditorGroup": true,
@@ -227,29 +252,46 @@
   "telemetry.telemetryLevel": "off",
   "markfiles.colorMarkedFile": "both",
   "markfiles.markedFileIcon": "🔸",
-  "workbench.activityBar.visible": false,
   "inline-bookmarks.expert.custom.words.mapping": {
-    "orange": ["@lead", "@warn"],
+    "orange": ["@lead", "@warn", "@issue-known"],
     "blue": ["@info", "@checked"],
     "purple": ["@mutate"],
     "yellow": ["@check"],
     "green": ["@ok"],
     "dark-green": ["@submitted"],
     "red": ["@issue"],
-    "aqua": ["@poc"]
+    "burgundy": ["@todo"],
+    "aqua": ["@poc"],
+    "aqua-light": ["@add", "@add-start", "@add-end", "@changed"]
   },
   "inline-bookmarks.expert.custom.styles": {
     "aqua":       {"gutterIconColor": "#32a8a6",                "color": "#32a8a6"},
+    "aqua-light": {"gutterIconColor": "rgba(50, 168, 166, .6)", "color": "rgba(50, 168, 166, .6)"},
     "orange":     {"gutterIconColor": "#f5a142",                "color": "#f5a142"},
     "blue":       {"gutterIconColor": "rgba(66, 161, 245, .3)", "color": "#42a1f5"},
     "purple":     {"gutterIconColor": "rgba(206, 51, 214, .3)", "color": "#ce33d6"},
     "yellow":     {"gutterIconColor": "#FFC300",                "color": "#FFC300"},
     "green":      {"gutterIconColor": "rgba(167, 232, 37, .3)", "color": "#a7e825"},
     "dark-green": {"gutterIconColor": "rgba(0, 163, 0, .3)",    "color": "#00A300"},
-    "red":        {"gutterIconColor": "#fc1c03",                "color": "#fc1c03"}
+    "red":        {"gutterIconColor": "#fc1c03",                "color": "#fc1c03"},
+    "burgundy":   {"gutterIconColor": "#a31202",                "color": "#a31202"},
   },
   "markfiles.autoloadFromScope": true,
+  "editor.lineHeight": 1.35,
   "solidity.defaultCompiler": "localFile",
   "coverage-gutters.showLineCoverage": true,
-  "hideComments.regex": [{"regex": "\/\\*\\s.*\\s\\*\/|\\/\\s{2,}\\*.*|\/{2,3}.*", "flags": "gm"}]
+  "hideComments.regex": [{"regex": "\/\\*\\s.*\\s\\*\/|\\/\\s{2,}\\*.*|\/{2,3}.*", "flags": "gm"}],
+  "window.density.editorTabHeight": "compact",
+  "codesnap.showWindowControls": false,
+  "codesnap.showLineNumbers": false,
+  "editor.defaultFoldingRangeProvider": "NomicFoundation.hardhat-solidity",
+  "workbench.activityBar.location": "hidden",
+  // Not working well yet
+  "editor.multiDocumentOccurrencesHighlight": false,
+  "window.confirmSaveUntitledWorkspace": false,
+  "git.openRepositoryInParentFolders": "never",
+  "search.searchEditor.defaultNumberOfContextLines": 0,
+  "editor.fontSize": 12.3,
+  "makefile.configureOnOpen": true,
+  "extensions.ignoreRecommendations": true
 }
