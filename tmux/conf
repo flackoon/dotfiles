@@ -1,12 +1,7 @@
 set-option -g default-shell /bin/zsh
+set -g mouse on
 set -g default-terminal "xterm-256color"
 set -g history-limit 15000
-
-set-option -g mouse on
-
-# make scrolling with wheels work
-# bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
-# bind -n WheelDownPane select-pane -t= \; send-keys -M
 
 # Rebind Prefix Key
 unbind-key C-b
