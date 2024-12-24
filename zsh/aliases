@@ -8,7 +8,7 @@ alias gupr="git pull --rebase"
 alias gc="git commit -v"
 alias gst="scmpuff_status"
 alias cgst="clear && gst"
-alias gh="git log --graph --format=\"%C(bold blue)%h %C(white)| %s | %C(yellow)(%aN) %C(green)%cs\""
+# alias gh="git log --graph --format=\"%C(bold blue)%h %C(white)| %s | %C(yellow)(%aN) %C(green)%cs\""
 alias gs="git stash"
 alias gsp="git stash pop"
 alias gsa="git stash apply"
@@ -28,49 +28,44 @@ alias grbi="git rebase -i"
 alias grbm="git rebase master"
 
 # Rake/Rails
-alias rdm="bundle exec rake db:migrate db:test:prepare"
-alias rdrb="bundle exec rake db:rollback"
-alias rdrs="bundle exec rake db:reset db:migrate"
-alias rta="bundle exec rake"
-alias sirb="irb --simple-prompt"
-alias rcgen="bundle exec rake codegen:translations codegen:graphql"
-alias bi="bundle install"
-
-# (Dext) Webpack
-alias wf="bin/webpack-flush"
-alias wds="bin/webpack-dev-server"
-
-# (Dext) Yarn
-alias yc="yarn codegen"
+# alias rdm="bundle exec rake db:migrate db:test:prepare"
+# alias rdrb="bundle exec rake db:rollback"
+# alias rdrs="bundle exec rake db:reset db:migrate"
+# alias rta="bundle exec rake"
+# alias sirb="irb --simple-prompt"
+# alias rcgen="bundle exec rake codegen:translations codegen:graphql"
+# alias bi="bundle install"
 
 # Yarn
-alias yd="yarn dev"
-alias ys="yarn start"
-alias yi="yarn install"
-alias yt="yarn test"
-alias ts="ts-node"
+# alias yd="yarn dev"
+# alias ys="yarn start"
+# alias yi="yarn install"
+# alias yt="yarn test"
+# alias ts="ts-node"
 
 # Docker
-alias dst="docker start"
-alias dsp="docker stop"
-alias dc="docker ps"
-alias dr="docker run"
-alias dcr="docker rm"
-alias dir="docker rmi"
-alias db="docker build"
-alias di="docker images"
-alias de="docker exec -t -i /bin/zsh"
-alias dl="docker logs --tail 15"
+# alias dst="docker start"
+# alias dsp="docker stop"
+# alias dc="docker ps"
+# alias dr="docker run"
+# alias dcr="docker rm"
+# alias dir="docker rmi"
+# alias db="docker build"
+# alias di="docker images"
+# alias de="docker exec -t -i /bin/zsh"
+# alias dl="docker logs --tail 15"
 
-alias tml="tmux list-sessions"
-alias tms="tmuxinator"
+# alias tml="tmux list-sessions"
+# alias tms="tmuxinator"
 
 alias zzz="pmset sleepnow"
 
-alias python=/usr/bin/python3
+# alias python=/usr/bin/python3
 
 # Foundry forge
 alias fta="forge test"
 alias ftmt="forge test --match-test"
 alias ftmp="forge test --match-path"
 alias fcvrg="forge coverage --report lcov"
+
+alias unixtimestamp="date +%s | pbcopy"

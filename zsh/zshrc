@@ -3,23 +3,21 @@
 stty erase '^?'
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(rbenv init -)"
 eval "$(jump shell)"
 eval "$(scmpuff init -s)"
-eval "$(thefuck --alias)"
 
 export EDITOR='vim'
 export NVM_DIR="$HOME/.nvm"
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
 export BAT_THEME="TwoDark"
+export BAT_PAGER='less -+X'
 
-# export GOROOT=/usr/local/go
-# export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-export PATH="$PATH:$HOME/.foundry/bin"
+# export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH="$PATH:$HOME/.foundry/bin"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 # ZSH
 ZSH_THEME="flacko"
@@ -34,17 +32,10 @@ precmd() {
 
 source $ZSH/oh-my-zsh.sh
 
-# Disable powerlevel10k because it spawns 3 extra processes, which messes up the theme switching
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-# source ~/.p10k.zsh
-# POWERLEVEL9K_DISABLE_GITSTATUS=true
-
 source ~/.zsh/aliases
 source ~/.zsh/functions
 
 [ -f ~/.zsh/aliases.local ] && source ~/.zsh/aliases.local
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 forward () {
   ssh -R 8881:localhost:$1 -N -f root@134.122.84.33
@@ -55,3 +46,8 @@ forward () {
 source ~/.zsh/theme
 theme "$THEME"
 
+# Highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
+[[ -s "/Users/benjaminfranklin/.gvm/scripts/gvm" ]] && source "/Users/benjaminfranklin/.gvm/scripts/gvm"

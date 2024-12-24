@@ -7,7 +7,7 @@ vo() { eval "$(scmpuff expand -- "$EDITOR" "$@")" }
 
 be() { bundle exec "$@" }
 
-unalias gd
+unalias "gd"
 gd() { git diff $(scmpuff expand -- "$@") }
 gds() { git diff --staged $(scmpuff expand -- "$@") }
 gsh() { git show $(scmpuff expand -- "$@") }
@@ -91,4 +91,34 @@ theme() {
     fi
     cd "$old_dir" >/dev/null
   fi
+}
+
+execute_in_iterm() {
+osascript <<EOD
+  tell application "iTerm2"
+    tell current window
+      tell current session
+        write text "$1"
+      end tell
+    end tell
+  end tell
+EOD
+}
+
+toggleVsCodeLineCoverageHighlight() {
+  settingsPath=~/Library/Application\ Support/Code/User/settings.json
+
+  setting=$(ggrep -oP '(?<=coverage-gutters.showLineCoverage\":\s)(false|true)' $settingsPath)
+
+  newSetting="false"
+
+  if [ $setting = "false" ]
+  then
+    newSetting="true"
+  elif [ $setting = "true" ]
+  then
+    newSetting="false"
+  fi
+
+  sed -i '' "s/coverage-gutters.showLineCoverage\": ${setting}/coverage-gutters.showLineCoverage\": ${newSetting}/" $settingsPath
 }
